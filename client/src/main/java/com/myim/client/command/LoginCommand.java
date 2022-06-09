@@ -17,7 +17,7 @@ import java.util.Scanner;
 @Slf4j
 public class LoginCommand implements BaseCommand{
 
-    static Integer KEY = 1;
+    static Integer KEY = 2;
     static String MES = "登录";
     private String username;
     private String password;
