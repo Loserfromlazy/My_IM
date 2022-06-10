@@ -1,6 +1,7 @@
 package com.myim.client.command;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
@@ -13,6 +14,7 @@ import java.util.Map;
  * @since 2022/6/9
  */
 @Data
+@Component
 public class MenuCommand implements BaseCommand {
     static Integer KEY = 1;
     static String MES = "展示菜单";
@@ -41,9 +43,9 @@ public class MenuCommand implements BaseCommand {
      *
      * @param commandMap 菜单Map
      */
-    public void setMenu(Map<String, BaseCommand> commandMap) {
+    public void setMenu(Map<Integer, BaseCommand> commandMap) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (Map.Entry<String, BaseCommand> stringBaseCommandEntry : commandMap.entrySet()) {
+        for (Map.Entry<Integer, BaseCommand> stringBaseCommandEntry : commandMap.entrySet()) {
             stringBuilder.append("请选择菜单: ")
                     .append(stringBaseCommandEntry.getKey())
                     .append("->")

@@ -2,6 +2,7 @@ package com.myim.client.command;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
@@ -15,6 +16,7 @@ import java.util.Scanner;
  */
 @Data
 @Slf4j
+@Component
 public class LoginCommand implements BaseCommand{
 
     static Integer KEY = 2;
