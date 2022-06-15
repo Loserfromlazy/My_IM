@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package com.myim.common.pojo;
+
+message ProtoMsg{
+
+  enum MessageType{
+    HEARTBEAT = 0;
+    HEARTBEAT_RESPONSE = 1;
+    LOGIN_REQUEST = 2;
+    LOGIN_RESPONSE = 3;
+    LOGOUT_REQUEST = 4;
+    LOGOUT_RESPONSE = 5;
+    MESSAGE_REQUEST = 6;
+    MESSAGE_RESPONSE = 7;
+  }
+
+  message LoginRequest{
+    string uid = 1; //用户唯一id
+    string deviceId = 2; //设备唯一id
+    string deviceType = 3; //设备类型
+    string token = 4; //用户token
+    string appVersion = 5; //app版本号
+  }
+
+  message LoginResponse{
+    bool result = 1; //登录结果
+    uint32 code = 2; //登录结果码
+    string msg = 3; //登录结果描述
+  }
+
+  message MessageRequest{
+    uint64 messageId = 1; //消息id
+    string from = 2; //发送者
+    string to = 3; //接收者
+    string content = 4; //消息内容
+    uint64 timestamp = 5; //消息时间戳
+    uint64 messageType = 6; //消息类型
+
+  }
+  message MessageResponse{
+    bool result = 1; //结果
+    uint32 code = 2; //结果码
+    string msg = 3; //描述
+    bool hint = 4; //是否需要提示
+    bool finished = 5; //是否完成
+    uint64 messageIndex = 6; //应答序号
+  }
+
+  message Message{
+    MessageType type = 1; //消息类型
+    string sessionId = 2; //会话id
+    uint64 seq = 3; //消息序列号
+    LoginRequest loginRequest = 4; //登录请求
+    LoginResponse loginResponse = 5; //登录响应
+
+  }
+}
