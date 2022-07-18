@@ -70,7 +70,9 @@ public class ClientSession {
     public ChannelFuture close() {
         ChannelFuture channelFuture = channel.closeFuture();
         channelFuture.addListener((ChannelFutureListener) channelFuture1 -> {
-            log.info("关闭成功");
+            if (channelFuture1.isSuccess()){
+                log.info("关闭成功");
+            }
         });
         return channelFuture;
     }
