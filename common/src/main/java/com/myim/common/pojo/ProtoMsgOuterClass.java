@@ -308,20 +308,10 @@ public final class ProtoMsgOuterClass {
        *设备类型
        * </pre>
        *
-       * <code>string deviceType = 3;</code>
+       * <code>uint32 deviceType = 3;</code>
        * @return The deviceType.
        */
-      java.lang.String getDeviceType();
-      /**
-       * <pre>
-       *设备类型
-       * </pre>
-       *
-       * <code>string deviceType = 3;</code>
-       * @return The bytes for deviceType.
-       */
-      com.google.protobuf.ByteString
-          getDeviceTypeBytes();
+      int getDeviceType();
 
       /**
        * <pre>
@@ -378,7 +368,6 @@ public final class ProtoMsgOuterClass {
       private LoginRequest() {
         uid_ = "";
         deviceId_ = "";
-        deviceType_ = "";
         token_ = "";
         appVersion_ = "";
       }
@@ -425,10 +414,9 @@ public final class ProtoMsgOuterClass {
                 deviceId_ = s;
                 break;
               }
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
+              case 24: {
 
-                deviceType_ = s;
+                deviceType_ = input.readUInt32();
                 break;
               }
               case 34: {
@@ -570,49 +558,18 @@ public final class ProtoMsgOuterClass {
       }
 
       public static final int DEVICETYPE_FIELD_NUMBER = 3;
-      private volatile java.lang.Object deviceType_;
+      private int deviceType_;
       /**
        * <pre>
        *设备类型
        * </pre>
        *
-       * <code>string deviceType = 3;</code>
+       * <code>uint32 deviceType = 3;</code>
        * @return The deviceType.
        */
       @java.lang.Override
-      public java.lang.String getDeviceType() {
-        java.lang.Object ref = deviceType_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          deviceType_ = s;
-          return s;
-        }
-      }
-      /**
-       * <pre>
-       *设备类型
-       * </pre>
-       *
-       * <code>string deviceType = 3;</code>
-       * @return The bytes for deviceType.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString
-          getDeviceTypeBytes() {
-        java.lang.Object ref = deviceType_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          deviceType_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public int getDeviceType() {
+        return deviceType_;
       }
 
       public static final int TOKEN_FIELD_NUMBER = 4;
@@ -727,8 +684,8 @@ public final class ProtoMsgOuterClass {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, deviceId_);
         }
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceType_)) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, deviceType_);
+        if (deviceType_ != 0) {
+          output.writeUInt32(3, deviceType_);
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 4, token_);
@@ -751,8 +708,9 @@ public final class ProtoMsgOuterClass {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, deviceId_);
         }
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceType_)) {
-          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, deviceType_);
+        if (deviceType_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(3, deviceType_);
         }
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, token_);
@@ -779,8 +737,8 @@ public final class ProtoMsgOuterClass {
             .equals(other.getUid())) return false;
         if (!getDeviceId()
             .equals(other.getDeviceId())) return false;
-        if (!getDeviceType()
-            .equals(other.getDeviceType())) return false;
+        if (getDeviceType()
+            != other.getDeviceType()) return false;
         if (!getToken()
             .equals(other.getToken())) return false;
         if (!getAppVersion()
@@ -801,7 +759,7 @@ public final class ProtoMsgOuterClass {
         hash = (37 * hash) + DEVICEID_FIELD_NUMBER;
         hash = (53 * hash) + getDeviceId().hashCode();
         hash = (37 * hash) + DEVICETYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getDeviceType().hashCode();
+        hash = (53 * hash) + getDeviceType();
         hash = (37 * hash) + TOKEN_FIELD_NUMBER;
         hash = (53 * hash) + getToken().hashCode();
         hash = (37 * hash) + APPVERSION_FIELD_NUMBER;
@@ -943,7 +901,7 @@ public final class ProtoMsgOuterClass {
 
           deviceId_ = "";
 
-          deviceType_ = "";
+          deviceType_ = 0;
 
           token_ = "";
 
@@ -1036,9 +994,8 @@ public final class ProtoMsgOuterClass {
             deviceId_ = other.deviceId_;
             onChanged();
           }
-          if (!other.getDeviceType().isEmpty()) {
-            deviceType_ = other.deviceType_;
-            onChanged();
+          if (other.getDeviceType() != 0) {
+            setDeviceType(other.getDeviceType());
           }
           if (!other.getToken().isEmpty()) {
             token_ = other.token_;
@@ -1269,63 +1226,30 @@ public final class ProtoMsgOuterClass {
           return this;
         }
 
-        private java.lang.Object deviceType_ = "";
+        private int deviceType_ ;
         /**
          * <pre>
          *设备类型
          * </pre>
          *
-         * <code>string deviceType = 3;</code>
+         * <code>uint32 deviceType = 3;</code>
          * @return The deviceType.
          */
-        public java.lang.String getDeviceType() {
-          java.lang.Object ref = deviceType_;
-          if (!(ref instanceof java.lang.String)) {
-            com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            deviceType_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
+        @java.lang.Override
+        public int getDeviceType() {
+          return deviceType_;
         }
         /**
          * <pre>
          *设备类型
          * </pre>
          *
-         * <code>string deviceType = 3;</code>
-         * @return The bytes for deviceType.
-         */
-        public com.google.protobuf.ByteString
-            getDeviceTypeBytes() {
-          java.lang.Object ref = deviceType_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            deviceType_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <pre>
-         *设备类型
-         * </pre>
-         *
-         * <code>string deviceType = 3;</code>
+         * <code>uint32 deviceType = 3;</code>
          * @param value The deviceType to set.
          * @return This builder for chaining.
          */
-        public Builder setDeviceType(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        public Builder setDeviceType(int value) {
+          
           deviceType_ = value;
           onChanged();
           return this;
@@ -1335,32 +1259,12 @@ public final class ProtoMsgOuterClass {
          *设备类型
          * </pre>
          *
-         * <code>string deviceType = 3;</code>
+         * <code>uint32 deviceType = 3;</code>
          * @return This builder for chaining.
          */
         public Builder clearDeviceType() {
           
-          deviceType_ = getDefaultInstance().getDeviceType();
-          onChanged();
-          return this;
-        }
-        /**
-         * <pre>
-         *设备类型
-         * </pre>
-         *
-         * <code>string deviceType = 3;</code>
-         * @param value The bytes for deviceType to set.
-         * @return This builder for chaining.
-         */
-        public Builder setDeviceTypeBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
-          deviceType_ = value;
+          deviceType_ = 0;
           onChanged();
           return this;
         }
@@ -6451,7 +6355,7 @@ public final class ProtoMsgOuterClass {
     java.lang.String[] descriptorData = {
       "\n\016protoMsg.proto\022\024com.myim.common.pojo\"\270" +
       "\006\n\010ProtoMsg\032d\n\014LoginRequest\022\013\n\003uid\030\001 \001(\t" +
-      "\022\020\n\010deviceId\030\002 \001(\t\022\022\n\ndeviceType\030\003 \001(\t\022\r" +
+      "\022\020\n\010deviceId\030\002 \001(\t\022\022\n\ndeviceType\030\003 \001(\r\022\r" +
       "\n\005token\030\004 \001(\t\022\022\n\nappVersion\030\005 \001(\t\032:\n\rLog" +
       "inResponse\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001(\r" +
       "\022\013\n\003msg\030\003 \001(\t\032v\n\016MessageRequest\022\021\n\tmessa" +

@@ -75,8 +75,6 @@ class ClientApplicationTests {
     public void testClientSession(){
         ClientSession clientSession = new ClientSession(new EmbeddedChannel());
         User user = new User();
-        user.setUsername("111");
-        user.setPassword("111");
         System.out.println(JSONObject.toJSONString(user));
         clientSession.setUser(user);
         System.out.println("正向导航");
