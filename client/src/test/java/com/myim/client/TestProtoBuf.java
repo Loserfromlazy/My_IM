@@ -1,6 +1,6 @@
 package com.myim.client;
 
-import com.myim.client.entity.User;
+import com.myim.common.entity.User;
 import com.myim.common.codec.SimpleProtobufDecoder;
 import com.myim.common.codec.SimpleProtobufEncoder;
 import com.myim.common.mock.MockLoginRequestHandler;

@@ -22,6 +22,8 @@ public class MockLoginRequestHandler extends ChannelInboundHandlerAdapter {
         final String deviceId = loginRequest.getDeviceId();
         final String token = loginRequest.getToken();
         final int deviceType = loginRequest.getDeviceType();
+        final ProtoMsgOuterClass.ProtoMsg.MessageType type = message.getType();
+        System.out.println("type="+type);
         System.out.println("uid=" + uid);
         System.out.println("deviceId=" + deviceId);
         System.out.println("token=" + token);

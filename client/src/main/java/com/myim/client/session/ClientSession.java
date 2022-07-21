@@ -1,6 +1,6 @@
 package com.myim.client.session;
 
-import com.myim.client.entity.User;
+import com.myim.common.entity.User;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
