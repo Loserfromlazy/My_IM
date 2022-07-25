@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ClientSession {
 
-    static final AttributeKey<ClientSession> attributeKey = AttributeKey.valueOf("SESSION");
+    static final AttributeKey<ClientSession> SESSION = AttributeKey.valueOf("SESSION");
 
     private Channel channel;
     private User user;
@@ -43,7 +43,7 @@ public class ClientSession {
         this.channel = channel;
         this.isConnected = true;
         //反向绑定
-        this.channel.attr(attributeKey).set(this);
+        this.channel.attr(SESSION).set(this);
     }
 
     public void loginSuccess(String sessionId){
@@ -58,7 +58,7 @@ public class ClientSession {
      * @return ClientSession 会话
      */
     public ClientSession getClientSession() {
-        return this.channel.attr(attributeKey).get();
+        return this.channel.attr(SESSION).get();
     }
 
 

@@ -12,6 +12,8 @@ public class User {
     private String token =UUID.randomUUID().toString();
     private String name = "zhangsan";
 
+    private String sessionId;
+
     public enum DeviceType{
         ANDROID,IOS,WINDOWS,LINUX,OTHER;
     }
@@ -24,6 +26,7 @@ public class User {
                 ", deviceType=" + deviceType +
                 ", token='" + token + '\'' +
                 ", name='" + name + '\'' +
+                ", sessionId='" + sessionId + '\'' +
                 '}';
     }
 
@@ -65,5 +68,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
     }
 }
