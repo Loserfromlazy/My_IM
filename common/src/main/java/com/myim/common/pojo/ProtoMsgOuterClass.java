@@ -4717,6 +4717,48 @@ public final class ProtoMsgOuterClass {
        * <code>.com.myim.common.pojo.ProtoMsg.LoginResponse loginResponse = 5;</code>
        */
       com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.LoginResponseOrBuilder getLoginResponseOrBuilder();
+
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+       * @return Whether the messageRequest field is set.
+       */
+      boolean hasMessageRequest();
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+       * @return The messageRequest.
+       */
+      com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest getMessageRequest();
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+       */
+      com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequestOrBuilder getMessageRequestOrBuilder();
+
+      /**
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+       * @return Whether the messageResponse field is set.
+       */
+      boolean hasMessageResponse();
+      /**
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+       * @return The messageResponse.
+       */
+      com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse getMessageResponse();
+      /**
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+       */
+      com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponseOrBuilder getMessageResponseOrBuilder();
     }
     /**
      * Protobuf type {@code com.myim.common.pojo.ProtoMsg.Message}
@@ -4804,6 +4846,32 @@ public final class ProtoMsgOuterClass {
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(loginResponse_);
                   loginResponse_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 50: {
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.Builder subBuilder = null;
+                if (messageRequest_ != null) {
+                  subBuilder = messageRequest_.toBuilder();
+                }
+                messageRequest_ = input.readMessage(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(messageRequest_);
+                  messageRequest_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 58: {
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.Builder subBuilder = null;
+                if (messageResponse_ != null) {
+                  subBuilder = messageResponse_.toBuilder();
+                }
+                messageResponse_ = input.readMessage(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(messageResponse_);
+                  messageResponse_ = subBuilder.buildPartial();
                 }
 
                 break;
@@ -5006,6 +5074,70 @@ public final class ProtoMsgOuterClass {
         return getLoginResponse();
       }
 
+      public static final int MESSAGEREQUEST_FIELD_NUMBER = 6;
+      private com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest messageRequest_;
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+       * @return Whether the messageRequest field is set.
+       */
+      @java.lang.Override
+      public boolean hasMessageRequest() {
+        return messageRequest_ != null;
+      }
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+       * @return The messageRequest.
+       */
+      @java.lang.Override
+      public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest getMessageRequest() {
+        return messageRequest_ == null ? com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.getDefaultInstance() : messageRequest_;
+      }
+      /**
+       * <pre>
+       *消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+       */
+      @java.lang.Override
+      public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequestOrBuilder getMessageRequestOrBuilder() {
+        return getMessageRequest();
+      }
+
+      public static final int MESSAGERESPONSE_FIELD_NUMBER = 7;
+      private com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse messageResponse_;
+      /**
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+       * @return Whether the messageResponse field is set.
+       */
+      @java.lang.Override
+      public boolean hasMessageResponse() {
+        return messageResponse_ != null;
+      }
+      /**
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+       * @return The messageResponse.
+       */
+      @java.lang.Override
+      public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse getMessageResponse() {
+        return messageResponse_ == null ? com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.getDefaultInstance() : messageResponse_;
+      }
+      /**
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+       */
+      @java.lang.Override
+      public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponseOrBuilder getMessageResponseOrBuilder() {
+        return getMessageResponse();
+      }
+
       private byte memoizedIsInitialized = -1;
       @java.lang.Override
       public final boolean isInitialized() {
@@ -5035,6 +5167,12 @@ public final class ProtoMsgOuterClass {
         if (loginResponse_ != null) {
           output.writeMessage(5, getLoginResponse());
         }
+        if (messageRequest_ != null) {
+          output.writeMessage(6, getMessageRequest());
+        }
+        if (messageResponse_ != null) {
+          output.writeMessage(7, getMessageResponse());
+        }
         unknownFields.writeTo(output);
       }
 
@@ -5062,6 +5200,14 @@ public final class ProtoMsgOuterClass {
         if (loginResponse_ != null) {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(5, getLoginResponse());
+        }
+        if (messageRequest_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(6, getMessageRequest());
+        }
+        if (messageResponse_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(7, getMessageResponse());
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -5093,6 +5239,16 @@ public final class ProtoMsgOuterClass {
           if (!getLoginResponse()
               .equals(other.getLoginResponse())) return false;
         }
+        if (hasMessageRequest() != other.hasMessageRequest()) return false;
+        if (hasMessageRequest()) {
+          if (!getMessageRequest()
+              .equals(other.getMessageRequest())) return false;
+        }
+        if (hasMessageResponse() != other.hasMessageResponse()) return false;
+        if (hasMessageResponse()) {
+          if (!getMessageResponse()
+              .equals(other.getMessageResponse())) return false;
+        }
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -5118,6 +5274,14 @@ public final class ProtoMsgOuterClass {
         if (hasLoginResponse()) {
           hash = (37 * hash) + LOGINRESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getLoginResponse().hashCode();
+        }
+        if (hasMessageRequest()) {
+          hash = (37 * hash) + MESSAGEREQUEST_FIELD_NUMBER;
+          hash = (53 * hash) + getMessageRequest().hashCode();
+        }
+        if (hasMessageResponse()) {
+          hash = (37 * hash) + MESSAGERESPONSE_FIELD_NUMBER;
+          hash = (53 * hash) + getMessageResponse().hashCode();
         }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
@@ -5270,6 +5434,18 @@ public final class ProtoMsgOuterClass {
             loginResponse_ = null;
             loginResponseBuilder_ = null;
           }
+          if (messageRequestBuilder_ == null) {
+            messageRequest_ = null;
+          } else {
+            messageRequest_ = null;
+            messageRequestBuilder_ = null;
+          }
+          if (messageResponseBuilder_ == null) {
+            messageResponse_ = null;
+          } else {
+            messageResponse_ = null;
+            messageResponseBuilder_ = null;
+          }
           return this;
         }
 
@@ -5308,6 +5484,16 @@ public final class ProtoMsgOuterClass {
             result.loginResponse_ = loginResponse_;
           } else {
             result.loginResponse_ = loginResponseBuilder_.build();
+          }
+          if (messageRequestBuilder_ == null) {
+            result.messageRequest_ = messageRequest_;
+          } else {
+            result.messageRequest_ = messageRequestBuilder_.build();
+          }
+          if (messageResponseBuilder_ == null) {
+            result.messageResponse_ = messageResponse_;
+          } else {
+            result.messageResponse_ = messageResponseBuilder_.build();
           }
           onBuilt();
           return result;
@@ -5372,6 +5558,12 @@ public final class ProtoMsgOuterClass {
           }
           if (other.hasLoginResponse()) {
             mergeLoginResponse(other.getLoginResponse());
+          }
+          if (other.hasMessageRequest()) {
+            mergeMessageRequest(other.getMessageRequest());
+          }
+          if (other.hasMessageResponse()) {
+            mergeMessageResponse(other.getMessageResponse());
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -5924,6 +6116,280 @@ public final class ProtoMsgOuterClass {
           }
           return loginResponseBuilder_;
         }
+
+        private com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest messageRequest_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.Builder, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequestOrBuilder> messageRequestBuilder_;
+        /**
+         * <pre>
+         *消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+         * @return Whether the messageRequest field is set.
+         */
+        public boolean hasMessageRequest() {
+          return messageRequestBuilder_ != null || messageRequest_ != null;
+        }
+        /**
+         * <pre>
+         *消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+         * @return The messageRequest.
+         */
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest getMessageRequest() {
+          if (messageRequestBuilder_ == null) {
+            return messageRequest_ == null ? com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.getDefaultInstance() : messageRequest_;
+          } else {
+            return messageRequestBuilder_.getMessage();
+          }
+        }
+        /**
+         * <pre>
+         *消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+         */
+        public Builder setMessageRequest(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest value) {
+          if (messageRequestBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            messageRequest_ = value;
+            onChanged();
+          } else {
+            messageRequestBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+         */
+        public Builder setMessageRequest(
+            com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.Builder builderForValue) {
+          if (messageRequestBuilder_ == null) {
+            messageRequest_ = builderForValue.build();
+            onChanged();
+          } else {
+            messageRequestBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+         */
+        public Builder mergeMessageRequest(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest value) {
+          if (messageRequestBuilder_ == null) {
+            if (messageRequest_ != null) {
+              messageRequest_ =
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.newBuilder(messageRequest_).mergeFrom(value).buildPartial();
+            } else {
+              messageRequest_ = value;
+            }
+            onChanged();
+          } else {
+            messageRequestBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+         */
+        public Builder clearMessageRequest() {
+          if (messageRequestBuilder_ == null) {
+            messageRequest_ = null;
+            onChanged();
+          } else {
+            messageRequest_ = null;
+            messageRequestBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+         */
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.Builder getMessageRequestBuilder() {
+          
+          onChanged();
+          return getMessageRequestFieldBuilder().getBuilder();
+        }
+        /**
+         * <pre>
+         *消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+         */
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequestOrBuilder getMessageRequestOrBuilder() {
+          if (messageRequestBuilder_ != null) {
+            return messageRequestBuilder_.getMessageOrBuilder();
+          } else {
+            return messageRequest_ == null ?
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.getDefaultInstance() : messageRequest_;
+          }
+        }
+        /**
+         * <pre>
+         *消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageRequest messageRequest = 6;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.Builder, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequestOrBuilder> 
+            getMessageRequestFieldBuilder() {
+          if (messageRequestBuilder_ == null) {
+            messageRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequest.Builder, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequestOrBuilder>(
+                    getMessageRequest(),
+                    getParentForChildren(),
+                    isClean());
+            messageRequest_ = null;
+          }
+          return messageRequestBuilder_;
+        }
+
+        private com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse messageResponse_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.Builder, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponseOrBuilder> messageResponseBuilder_;
+        /**
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+         * @return Whether the messageResponse field is set.
+         */
+        public boolean hasMessageResponse() {
+          return messageResponseBuilder_ != null || messageResponse_ != null;
+        }
+        /**
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+         * @return The messageResponse.
+         */
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse getMessageResponse() {
+          if (messageResponseBuilder_ == null) {
+            return messageResponse_ == null ? com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.getDefaultInstance() : messageResponse_;
+          } else {
+            return messageResponseBuilder_.getMessage();
+          }
+        }
+        /**
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+         */
+        public Builder setMessageResponse(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse value) {
+          if (messageResponseBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            messageResponse_ = value;
+            onChanged();
+          } else {
+            messageResponseBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+         */
+        public Builder setMessageResponse(
+            com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.Builder builderForValue) {
+          if (messageResponseBuilder_ == null) {
+            messageResponse_ = builderForValue.build();
+            onChanged();
+          } else {
+            messageResponseBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+         */
+        public Builder mergeMessageResponse(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse value) {
+          if (messageResponseBuilder_ == null) {
+            if (messageResponse_ != null) {
+              messageResponse_ =
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.newBuilder(messageResponse_).mergeFrom(value).buildPartial();
+            } else {
+              messageResponse_ = value;
+            }
+            onChanged();
+          } else {
+            messageResponseBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+         */
+        public Builder clearMessageResponse() {
+          if (messageResponseBuilder_ == null) {
+            messageResponse_ = null;
+            onChanged();
+          } else {
+            messageResponse_ = null;
+            messageResponseBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+         */
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.Builder getMessageResponseBuilder() {
+          
+          onChanged();
+          return getMessageResponseFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+         */
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponseOrBuilder getMessageResponseOrBuilder() {
+          if (messageResponseBuilder_ != null) {
+            return messageResponseBuilder_.getMessageOrBuilder();
+          } else {
+            return messageResponse_ == null ?
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.getDefaultInstance() : messageResponse_;
+          }
+        }
+        /**
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.Builder, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponseOrBuilder> 
+            getMessageResponseFieldBuilder() {
+          if (messageResponseBuilder_ == null) {
+            messageResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.Builder, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponseOrBuilder>(
+                    getMessageResponse(),
+                    getParentForChildren(),
+                    isClean());
+            messageResponse_ = null;
+          }
+          return messageResponseBuilder_;
+        }
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6353,8 +6819,8 @@ public final class ProtoMsgOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016protoMsg.proto\022\024com.myim.common.pojo\"\270" +
-      "\006\n\010ProtoMsg\032d\n\014LoginRequest\022\013\n\003uid\030\001 \001(\t" +
+      "\n\016protoMsg.proto\022\024com.myim.common.pojo\"\310" +
+      "\007\n\010ProtoMsg\032d\n\014LoginRequest\022\013\n\003uid\030\001 \001(\t" +
       "\022\020\n\010deviceId\030\002 \001(\t\022\022\n\ndeviceType\030\003 \001(\r\022\r" +
       "\n\005token\030\004 \001(\t\022\022\n\nappVersion\030\005 \001(\t\032:\n\rLog" +
       "inResponse\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001(\r" +
@@ -6364,17 +6830,21 @@ public final class ProtoMsgOuterClass {
       "ageType\030\006 \001(\004\032r\n\017MessageResponse\022\016\n\006resu" +
       "lt\030\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\013\n\003msg\030\003 \001(\t\022\014\n\004h" +
       "int\030\004 \001(\010\022\020\n\010finished\030\005 \001(\010\022\024\n\014messageIn" +
-      "dex\030\006 \001(\004\032\353\001\n\007Message\0228\n\004type\030\001 \001(\0162*.co" +
+      "dex\030\006 \001(\004\032\373\002\n\007Message\0228\n\004type\030\001 \001(\0162*.co" +
       "m.myim.common.pojo.ProtoMsg.MessageType\022" +
       "\021\n\tsessionId\030\002 \001(\t\022\013\n\003seq\030\003 \001(\004\022A\n\014login" +
       "Request\030\004 \001(\0132+.com.myim.common.pojo.Pro" +
       "toMsg.LoginRequest\022C\n\rloginResponse\030\005 \001(" +
       "\0132,.com.myim.common.pojo.ProtoMsg.LoginR" +
-      "esponse\"\257\001\n\013MessageType\022\r\n\tHEARTBEAT\020\000\022\026" +
-      "\n\022HEARTBEAT_RESPONSE\020\001\022\021\n\rLOGIN_REQUEST\020" +
-      "\002\022\022\n\016LOGIN_RESPONSE\020\003\022\022\n\016LOGOUT_REQUEST\020" +
-      "\004\022\023\n\017LOGOUT_RESPONSE\020\005\022\023\n\017MESSAGE_REQUES" +
-      "T\020\006\022\024\n\020MESSAGE_RESPONSE\020\007b\006proto3"
+      "esponse\022E\n\016messageRequest\030\006 \001(\0132-.com.my" +
+      "im.common.pojo.ProtoMsg.MessageRequest\022G" +
+      "\n\017messageResponse\030\007 \001(\0132..com.myim.commo" +
+      "n.pojo.ProtoMsg.MessageResponse\"\257\001\n\013Mess" +
+      "ageType\022\r\n\tHEARTBEAT\020\000\022\026\n\022HEARTBEAT_RESP" +
+      "ONSE\020\001\022\021\n\rLOGIN_REQUEST\020\002\022\022\n\016LOGIN_RESPO" +
+      "NSE\020\003\022\022\n\016LOGOUT_REQUEST\020\004\022\023\n\017LOGOUT_RESP" +
+      "ONSE\020\005\022\023\n\017MESSAGE_REQUEST\020\006\022\024\n\020MESSAGE_R" +
+      "ESPONSE\020\007b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6415,7 +6885,7 @@ public final class ProtoMsgOuterClass {
     internal_static_com_myim_common_pojo_ProtoMsg_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_myim_common_pojo_ProtoMsg_Message_descriptor,
-        new java.lang.String[] { "Type", "SessionId", "Seq", "LoginRequest", "LoginResponse", });
+        new java.lang.String[] { "Type", "SessionId", "Seq", "LoginRequest", "LoginResponse", "MessageRequest", "MessageResponse", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

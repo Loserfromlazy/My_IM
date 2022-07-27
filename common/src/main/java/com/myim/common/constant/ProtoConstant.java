@@ -9,4 +9,7 @@ public class ProtoConstant {
      * 协议版本号 16进制的1
      */
     public static final short VERSION_CODE= 0x01;
+
+    public static final int SUCCESS = 1;
+    public static final  int FAIL = 2;
 }

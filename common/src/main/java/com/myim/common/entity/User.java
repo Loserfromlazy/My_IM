@@ -2,6 +2,8 @@ package com.myim.common.entity;
 
 
 
+import com.myim.common.pojo.ProtoMsgOuterClass;
+
 import java.util.UUID;
 
 
@@ -16,6 +18,15 @@ public class User {
 
     public enum DeviceType{
         ANDROID,IOS,WINDOWS,LINUX,OTHER;
+    }
+
+    public static User fromLoginRequets(ProtoMsgOuterClass.ProtoMsg.LoginRequest loginRequest){
+        User user = new User();
+        user.setUid(loginRequest.getUid());
+        user.setDeviceId(loginRequest.getDeviceId());
+        user.setToken(loginRequest.getToken());
+        user.setDeviceType(loginRequest.getDeviceType());
+        return user;
     }
 
     @Override
@@ -50,8 +61,12 @@ public class User {
         return deviceType;
     }
 
-    public void setDeviceType(DeviceType deviceType) {
-        this.deviceType = deviceType;
+    public void setDeviceType(int deviceType) {
+        for (DeviceType value : DeviceType.values()) {
+            if (value.ordinal() == deviceType){
+                this.deviceType = value;
+            }
+        }
     }
 
     public String getToken() {

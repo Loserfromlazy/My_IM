@@ -2,6 +2,7 @@ package com.myim.server.start;
 
 import com.myim.common.codec.SimpleProtobufDecoder;
 import com.myim.common.codec.SimpleProtobufEncoder;
+import com.myim.server.handler.LoginRequestHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.ChannelFuture;
@@ -12,6 +13,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,8 @@ import java.net.InetSocketAddress;
 @Slf4j
 public class IMServer {
 
+    @Autowired
+    LoginRequestHandler loginRequestHandler;
 
     @Value("${server.port}")
     private Integer port;
@@ -53,6 +57,7 @@ public class IMServer {
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             socketChannel.pipeline().addLast(new SimpleProtobufDecoder());
                             socketChannel.pipeline().addLast(new SimpleProtobufEncoder());
+                            socketChannel.pipeline().addLast("login",loginRequestHandler);
                         }
                     });
             ChannelFuture channelFuture = bootstrap.bind();

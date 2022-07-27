@@ -2,8 +2,11 @@ package com.myim.server.session;
 
 import com.myim.common.entity.User;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.AttributeKey;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.UUID;
 
@@ -15,6 +18,7 @@ import java.util.UUID;
  * @author Yuhaoran
  * @since 2022/7/25
  */
+@Slf4j
 public class ServerSession {
     static final AttributeKey<ServerSession> SESSION = AttributeKey.valueOf("SESSION");
 
@@ -77,6 +81,25 @@ public class ServerSession {
         this.isLogin = true;
         ServerSessionMap serverSessionMap = ServerSessionMap.getServerSessionMap();
         serverSessionMap.addSession(this);
+    }
+
+    public static void closeSession(ChannelHandlerContext ctx) {
+        ServerSession serverSession = ctx.channel().attr(SESSION).get();
+        if (serverSession!=null && serverSession.getUser() != null) {
+            serverSession.isLogin = false;
+            ServerSessionMap serverSessionMap = ServerSessionMap.getServerSessionMap();
+            serverSessionMap.removeSession(serverSession.sessionId);
+            final ChannelFuture channelFuture = serverSession.channel.closeFuture();
+            channelFuture.addListener((ChannelFutureListener) channelFuture1 -> {
+                if (channelFuture1.isSuccess()) {
+                    log.error("关闭失败");
+                }
+            });
+        }
+    }
+
+    public void writeAndFlush(Object o) {
+        this.channel.writeAndFlush(o);
     }
 
 

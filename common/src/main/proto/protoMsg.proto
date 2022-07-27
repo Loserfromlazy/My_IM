@@ -53,6 +53,8 @@ message ProtoMsg{
     uint64 seq = 3; //消息序列号
     LoginRequest loginRequest = 4; //登录请求
     LoginResponse loginResponse = 5; //登录响应
+    MessageRequest messageRequest = 6;//消息
+    MessageResponse messageResponse = 7;
 
   }
 }
