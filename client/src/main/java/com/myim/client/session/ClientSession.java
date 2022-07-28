@@ -4,6 +4,7 @@ import com.myim.common.entity.User;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.AttributeKey;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -49,9 +50,10 @@ public class ClientSession {
         this.channel.attr(SESSION).set(this);
     }
 
-    public void loginSuccess(String sessionId){
-        this.isLogin = true;
-        this.sessionId = sessionId;
+    public static void loginSuccess(Channel channel,String sessionId){
+        ClientSession clientSession = channel.attr(SESSION).get();
+        clientSession.isLogin = true;
+        clientSession.sessionId = sessionId;
     }
 
 

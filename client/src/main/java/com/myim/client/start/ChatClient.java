@@ -1,5 +1,6 @@
 package com.myim.client.start;
 
+import com.myim.client.handler.LoginResponseHandler;
 import com.myim.common.codec.SimpleProtobufDecoder;
 import com.myim.common.codec.SimpleProtobufEncoder;
 import io.netty.bootstrap.Bootstrap;
@@ -13,6 +14,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -31,6 +33,9 @@ public class ChatClient {
     private Bootstrap bootstrap;
     private NioEventLoopGroup group;
     private ChannelFutureListener channelFutureListener;
+
+    @Autowired
+    LoginResponseHandler loginResponseHandler;
 
     @Value("${server.address}")
     private String address;
@@ -51,6 +56,7 @@ public class ChatClient {
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ch.pipeline().addLast(new SimpleProtobufDecoder());
                         ch.pipeline().addLast(new SimpleProtobufEncoder());
+                        ch.pipeline().addLast("loginResponse",loginResponseHandler);
                     }
                 });
         ChannelFuture channelFuture = bootstrap.connect();

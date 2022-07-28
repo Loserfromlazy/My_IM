@@ -109,8 +109,9 @@ class ClientApplicationTests {
     }
 
     private ClientSession getClientSession(){
-        final ClientSession clientSession = new ClientSession(new EmbeddedChannel());
-        clientSession.loginSuccess(UUID.randomUUID().toString());
+        final EmbeddedChannel channel = new EmbeddedChannel();
+        final ClientSession clientSession = new ClientSession(channel);
+        ClientSession.loginSuccess(channel,UUID.randomUUID().toString());
         return clientSession;
     }
     private User getUser(){
