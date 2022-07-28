@@ -8,6 +8,8 @@ import io.netty.util.AttributeKey;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.UUID;
+
 /**
  * <p>
  * 客户端会话
@@ -42,6 +44,7 @@ public class ClientSession {
         //正向绑定
         this.channel = channel;
         this.isConnected = true;
+        this.sessionId = UUID.randomUUID().toString();
         //反向绑定
         this.channel.attr(SESSION).set(this);
     }

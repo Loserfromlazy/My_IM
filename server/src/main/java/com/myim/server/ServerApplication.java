@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-
+@ComponentScan("com.myim")
 @SpringBootApplication
 public class ServerApplication {
 
