@@ -1,5 +1,6 @@
 package com.myim.client.start;
 
+import com.myim.client.handler.ExceptionHandler;
 import com.myim.client.handler.LoginResponseHandler;
 import com.myim.common.codec.SimpleProtobufDecoder;
 import com.myim.common.codec.SimpleProtobufEncoder;
@@ -37,6 +38,9 @@ public class ChatClient {
     @Autowired
     LoginResponseHandler loginResponseHandler;
 
+    @Autowired
+    ExceptionHandler exceptionHandler;
+
     @Value("${server.address}")
     private String address;
     @Value("${server.port}")
@@ -57,6 +61,7 @@ public class ChatClient {
                         ch.pipeline().addLast(new SimpleProtobufDecoder());
                         ch.pipeline().addLast(new SimpleProtobufEncoder());
                         ch.pipeline().addLast("loginResponse",loginResponseHandler);
+                        ch.pipeline().addLast(exceptionHandler);
                     }
                 });
         ChannelFuture channelFuture = bootstrap.connect();
