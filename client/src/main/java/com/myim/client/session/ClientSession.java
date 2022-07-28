@@ -72,7 +72,7 @@ public class ClientSession {
      *
      * @return ChannelFuture 关闭回调
      */
-    public ChannelFuture close() {
+    public static ChannelFuture close(Channel channel) {
         ChannelFuture channelFuture = channel.closeFuture();
         channelFuture.addListener((ChannelFutureListener) channelFuture1 -> {
             if (channelFuture1.isSuccess()){

@@ -1,8 +1,8 @@
 package com.myim.client;
 
-import com.myim.common.entity.User;
 import com.myim.common.codec.SimpleProtobufDecoder;
 import com.myim.common.codec.SimpleProtobufEncoder;
+import com.myim.common.entity.User;
 import com.myim.common.mock.MockLoginRequestHandler;
 import com.myim.common.pojo.ProtoMsgOuterClass;
 import io.netty.buffer.ByteBuf;
@@ -17,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class TestProtoBuf {
 
     @Test
-    public void testProtoBuf(){
+    public void testProtoBuf() {
         //构建流水线
         ChannelInitializer channelInitializer = new ChannelInitializer() {
             @Override
@@ -32,7 +32,7 @@ public class TestProtoBuf {
         ProtoMsgOuterClass.ProtoMsg.Message message = buildMessage(new User());
         ByteBuf buffer = Unpooled.buffer();
         //手动编码
-        SimpleProtobufEncoder.encode0(message,buffer);
+        SimpleProtobufEncoder.encode0(message, buffer);
         //写入通道，进行入站模拟
         embeddedChannel.writeInbound(buffer);
         embeddedChannel.flush();
@@ -45,7 +45,7 @@ public class TestProtoBuf {
 
     }
 
-    private ProtoMsgOuterClass.ProtoMsg.Message buildMessage(User user){
+    private ProtoMsgOuterClass.ProtoMsg.Message buildMessage(User user) {
         final ProtoMsgOuterClass.ProtoMsg.Message.Builder builder = ProtoMsgOuterClass.ProtoMsg.Message.newBuilder();
         builder.setType(ProtoMsgOuterClass.ProtoMsg.MessageType.LOGIN_REQUEST);
         final ProtoMsgOuterClass.ProtoMsg.LoginRequest.Builder loginRequestBuilder = ProtoMsgOuterClass.ProtoMsg.LoginRequest.newBuilder();
