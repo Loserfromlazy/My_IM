@@ -4,8 +4,6 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.Scanner;
-
 /**
  * <p>
  * LoginCommand
@@ -21,7 +19,7 @@ public class LoginCommand implements BaseCommand{
 
     public static final String KEY = "2";
     static String MES = "登录";
-    private String username;
+    private String uid;
     private String password;
 
     @Override
@@ -40,7 +38,7 @@ public class LoginCommand implements BaseCommand{
         if (split.length!= 2) {
             log.error("格式不正确(id@password)");
         } else {
-            username = split[0];
+            uid = split[0];
             password = split[1];
         }
     }

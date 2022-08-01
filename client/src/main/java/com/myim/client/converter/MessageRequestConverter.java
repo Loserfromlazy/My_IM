@@ -26,12 +26,16 @@ public class MessageRequestConverter extends BaseConverter{
         ProtoMsgOuterClass.ProtoMsg.MessageRequest.Builder builder = ProtoMsgOuterClass.ProtoMsg.MessageRequest.newBuilder();
         builder.setFrom(chatMessage.getFrom());
         builder.setTo(chatMessage.getTo());
-        builder.setContent(chatMessage.getContent());
+        builder.setContent(isBlank(chatMessage.getContent())?"":chatMessage.getContent() );
         builder.setMessageType(chatMessage.getContentType().ordinal());
         builder.setMessageId(chatMessage.getMessageId());
-        builder.setTimestamp(chatMessage.getMessageId());
-        builder.setUrl(chatMessage.getUrl());
+        builder.setTimestamp(chatMessage.getTime());
+        builder.setUrl(isBlank(chatMessage.getUrl())?"":chatMessage.getUrl());
         baseBuilder.setMessageRequest(builder.build());
         return baseBuilder.build();
+    }
+
+    private boolean isBlank(String str){
+        return str == null || "".equals(str);
     }
 }

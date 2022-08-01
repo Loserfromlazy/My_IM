@@ -116,7 +116,7 @@ public class CommandController {
 
     private void startLogin() {
         User user = new User();
-        user.setName(loginCommand.getUsername());
+        user.setUid(loginCommand.getUid());
         user.setToken(loginCommand.getPassword());
         clientSession.setUser(user);
         loginSender.send(user, clientSession);

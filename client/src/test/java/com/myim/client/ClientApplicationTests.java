@@ -34,7 +34,7 @@ class ClientApplicationTests {
             System.out.println("请输入用户名密码(username@password)：");
             String nextLine = scanner.nextLine();
             loginCommand.exec(nextLine);
-            System.out.println("本次输入的 username 为：" + loginCommand.getUsername());
+            System.out.println("本次输入的 username 为：" + loginCommand.getUid());
         }
     }
 
@@ -57,7 +57,7 @@ class ClientApplicationTests {
                     System.out.println("请输入用户名密码(username@password)：");
                     Scanner input = new Scanner(System.in);
                     loginCommand.exec(input.nextLine());
-                    System.out.println("本次输入的 username 为：" + loginCommand.getUsername());
+                    System.out.println("本次输入的 username 为：" + loginCommand.getUid());
                     break;
             }
         }
