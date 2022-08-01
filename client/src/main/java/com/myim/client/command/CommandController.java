@@ -1,10 +1,11 @@
 package com.myim.client.command;
 
-import com.myim.client.converter.LoginRequestConverter;
 import com.myim.client.sender.LoginSender;
+import com.myim.client.sender.MessageSender;
 import com.myim.client.session.ClientSession;
 import com.myim.client.start.ChatClient;
 import com.myim.common.concurrent.TaskScheduler;
+import com.myim.common.entity.ChatMessage;
 import com.myim.common.entity.User;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.EventLoop;
@@ -25,7 +26,7 @@ import java.util.concurrent.TimeUnit;
  * @author Yuhaoran
  * @since 2022/7/28
  */
-@Component("CommandController")
+@Component
 @Slf4j
 public class CommandController {
 
@@ -36,10 +37,18 @@ public class CommandController {
     MenuCommand menuCommand;
 
     @Autowired
+    MessageCommand messageCommand;
+
+    @Autowired
     LoginSender loginSender;
 
     @Autowired
+    MessageSender messageSender;
+
+    @Autowired
     ChatClient client;
+
+    Map<String, BaseCommand> menuMap = new HashMap<>();
 
     ClientSession clientSession;
 
@@ -60,15 +69,27 @@ public class CommandController {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("请输入菜单选项");
                 String nextLine = scanner.nextLine();
-                switch (nextLine) {
-                    case "1":
+                BaseCommand baseCommand = menuMap.get(nextLine);
+                if (baseCommand==null){
+                    System.out.println("请输入正确的菜单指令");
+                    continue;
+                }
+                switch (baseCommand.getKey()) {
+                    case MenuCommand.KEY:
                         System.out.println(menuCommand.getShowMenu());
                         break;
-                    case "2":
+                    case LoginCommand.KEY:
                         System.out.println("请输入用户名密码(username@password)：");
-                        Scanner input = new Scanner(System.in);
-                        loginCommand.exec(input.nextLine());
+                        baseCommand.exec(scanner.nextLine());
                         startLogin();
+                        break;
+                    case MessageCommand.KEY:
+                        System.out.println("请输入发送人和消息(uid:message)");
+                        baseCommand.exec(scanner.nextLine());
+                        startChat();
+                        break;
+                    default:
+                        System.out.println("请输入正确的菜单指令");
                         break;
                 }
             }
@@ -76,18 +97,35 @@ public class CommandController {
 
     }
 
+    private void startChat() {
+        ChatMessage chatMessage = new ChatMessage();
+        if (clientSession == null || !clientSession.getIsLogin()) {
+            log.error("当前用户未登录，无法发送消息");
+            return;
+        }
+        clientSession.getUser();
+        chatMessage.setFrom(clientSession.getUser().getUid());
+        chatMessage.setTo(messageCommand.getUid());
+        chatMessage.setContent(messageCommand.getContent());
+        chatMessage.setTime(System.currentTimeMillis());
+        chatMessage.setUser(chatMessage.getUser());
+        chatMessage.setMessageId(System.currentTimeMillis());
+        chatMessage.setContentType(ChatMessage.ContentType.TEXT);
+        messageSender.send(chatMessage,clientSession);
+    }
+
     private void startLogin() {
         User user = new User();
         user.setName(loginCommand.getUsername());
         user.setToken(loginCommand.getPassword());
         clientSession.setUser(user);
-        loginSender.send(user,clientSession);
+        loginSender.send(user, clientSession);
     }
 
     public void initMap() {
-        Map<Integer, BaseCommand> menuMap = new HashMap<>();
         menuMap.put(loginCommand.getKey(), loginCommand);
         menuMap.put(menuCommand.getKey(), menuCommand);
+        menuMap.put(messageCommand.getKey(), messageCommand);
         menuCommand.setMenu(menuMap);
     }
 

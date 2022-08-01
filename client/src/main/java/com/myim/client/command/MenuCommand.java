@@ -16,7 +16,7 @@ import java.util.Map;
 @Data
 @Component
 public class MenuCommand implements BaseCommand {
-    static Integer KEY = 1;
+    public static final String KEY = "1";
     static String MES = "展示菜单";
 
     private String command;
@@ -24,7 +24,7 @@ public class MenuCommand implements BaseCommand {
 
 
     @Override
-    public Integer getKey() {
+    public String getKey() {
         return KEY;
     }
 
@@ -43,9 +43,9 @@ public class MenuCommand implements BaseCommand {
      *
      * @param commandMap 菜单Map
      */
-    public void setMenu(Map<Integer, BaseCommand> commandMap) {
+    public void setMenu(Map<String, BaseCommand> commandMap) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (Map.Entry<Integer, BaseCommand> stringBaseCommandEntry : commandMap.entrySet()) {
+        for (Map.Entry<String, BaseCommand> stringBaseCommandEntry : commandMap.entrySet()) {
             stringBuilder.append("请选择菜单: ")
                     .append(stringBaseCommandEntry.getKey())
                     .append("->")

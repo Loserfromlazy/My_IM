@@ -60,6 +60,7 @@ public class ServerSessionMap {
      * @date 2022/7/25 13:58
      */
     public List<ServerSession> getSessionByUserId(String userId) {
+        //todo 待优化
         List<ServerSession> collect = concurrentMap.values().stream()
                 .filter(session -> Objects.equals(session.getUser().getUid(), userId))
                 .collect(Collectors.toList());

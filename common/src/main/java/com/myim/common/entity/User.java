@@ -12,7 +12,7 @@ public class User {
     private String deviceId=UUID.randomUUID().toString();
     private DeviceType deviceType = DeviceType.ANDROID;
     private String token =UUID.randomUUID().toString();
-    private String name = "zhangsan";
+    private String name;
 
     private String sessionId;
 

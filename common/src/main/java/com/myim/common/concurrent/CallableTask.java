@@ -10,7 +10,7 @@ package com.myim.common.concurrent;
  */
 public interface CallableTask<T> {
 
-    public T run();
+    public T run()throws Exception;
     public void onSuccess(T t);
     public void onError(Throwable t);
 }

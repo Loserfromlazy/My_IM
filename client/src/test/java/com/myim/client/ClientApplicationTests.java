@@ -66,7 +66,7 @@ class ClientApplicationTests {
 
     public void initMap() {
         LoginCommand loginCommand = new LoginCommand();
-        Map<Integer, BaseCommand> menuMap = new HashMap<>();
+        Map<String, BaseCommand> menuMap = new HashMap<>();
         menuMap.put(loginCommand.getKey(), loginCommand);
         menuMap.put(menuCommand.getKey(), menuCommand);
         menuCommand.setMenu(menuMap);
@@ -93,6 +93,7 @@ class ClientApplicationTests {
     public void testLoginRequestConverter(){
         final ClientSession clientSession = getClientSession();
         final User user = getUser();
+        user.setName("张三");
         LoginRequestConverter converter = new LoginRequestConverter(ProtoMsgOuterClass.ProtoMsg.MessageType.LOGIN_REQUEST,clientSession,user);
         final ProtoMsgOuterClass.ProtoMsg.Message message = converter.getLoginRequest();
         final ProtoMsgOuterClass.ProtoMsg.LoginRequest loginRequest = message.getLoginRequest();

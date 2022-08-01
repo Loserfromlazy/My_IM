@@ -36,7 +36,7 @@ message ProtoMsg{
     string content = 4; //消息内容
     uint64 timestamp = 5; //消息时间戳
     uint64 messageType = 6; //消息类型
-
+    string url = 7;//多媒体url
   }
   message MessageResponse{
     bool result = 1; //结果

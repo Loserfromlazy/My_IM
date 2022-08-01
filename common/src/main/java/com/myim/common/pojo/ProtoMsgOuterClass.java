@@ -2393,6 +2393,26 @@ public final class ProtoMsgOuterClass {
        * @return The messageType.
        */
       long getMessageType();
+
+      /**
+       * <pre>
+       *多媒体url
+       * </pre>
+       *
+       * <code>string url = 7;</code>
+       * @return The url.
+       */
+      java.lang.String getUrl();
+      /**
+       * <pre>
+       *多媒体url
+       * </pre>
+       *
+       * <code>string url = 7;</code>
+       * @return The bytes for url.
+       */
+      com.google.protobuf.ByteString
+          getUrlBytes();
     }
     /**
      * Protobuf type {@code com.myim.common.pojo.ProtoMsg.MessageRequest}
@@ -2410,6 +2430,7 @@ public final class ProtoMsgOuterClass {
         from_ = "";
         to_ = "";
         content_ = "";
+        url_ = "";
       }
 
       @java.lang.Override
@@ -2473,6 +2494,12 @@ public final class ProtoMsgOuterClass {
               case 48: {
 
                 messageType_ = input.readUInt64();
+                break;
+              }
+              case 58: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                url_ = s;
                 break;
               }
               default: {
@@ -2692,6 +2719,52 @@ public final class ProtoMsgOuterClass {
         return messageType_;
       }
 
+      public static final int URL_FIELD_NUMBER = 7;
+      private volatile java.lang.Object url_;
+      /**
+       * <pre>
+       *多媒体url
+       * </pre>
+       *
+       * <code>string url = 7;</code>
+       * @return The url.
+       */
+      @java.lang.Override
+      public java.lang.String getUrl() {
+        java.lang.Object ref = url_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          url_ = s;
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       *多媒体url
+       * </pre>
+       *
+       * <code>string url = 7;</code>
+       * @return The bytes for url.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getUrlBytes() {
+        java.lang.Object ref = url_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          url_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
       private byte memoizedIsInitialized = -1;
       @java.lang.Override
       public final boolean isInitialized() {
@@ -2724,6 +2797,9 @@ public final class ProtoMsgOuterClass {
         if (messageType_ != 0L) {
           output.writeUInt64(6, messageType_);
         }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 7, url_);
+        }
         unknownFields.writeTo(output);
       }
 
@@ -2754,6 +2830,9 @@ public final class ProtoMsgOuterClass {
           size += com.google.protobuf.CodedOutputStream
             .computeUInt64Size(6, messageType_);
         }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, url_);
+        }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
@@ -2781,6 +2860,8 @@ public final class ProtoMsgOuterClass {
             != other.getTimestamp()) return false;
         if (getMessageType()
             != other.getMessageType()) return false;
+        if (!getUrl()
+            .equals(other.getUrl())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -2807,6 +2888,8 @@ public final class ProtoMsgOuterClass {
         hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getMessageType());
+        hash = (37 * hash) + URL_FIELD_NUMBER;
+        hash = (53 * hash) + getUrl().hashCode();
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -2952,6 +3035,8 @@ public final class ProtoMsgOuterClass {
 
           messageType_ = 0L;
 
+          url_ = "";
+
           return this;
         }
 
@@ -2984,6 +3069,7 @@ public final class ProtoMsgOuterClass {
           result.content_ = content_;
           result.timestamp_ = timestamp_;
           result.messageType_ = messageType_;
+          result.url_ = url_;
           onBuilt();
           return result;
         }
@@ -3052,6 +3138,10 @@ public final class ProtoMsgOuterClass {
           }
           if (other.getMessageType() != 0L) {
             setMessageType(other.getMessageType());
+          }
+          if (!other.getUrl().isEmpty()) {
+            url_ = other.url_;
+            onChanged();
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -3495,6 +3585,102 @@ public final class ProtoMsgOuterClass {
         public Builder clearMessageType() {
           
           messageType_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object url_ = "";
+        /**
+         * <pre>
+         *多媒体url
+         * </pre>
+         *
+         * <code>string url = 7;</code>
+         * @return The url.
+         */
+        public java.lang.String getUrl() {
+          java.lang.Object ref = url_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            url_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         *多媒体url
+         * </pre>
+         *
+         * <code>string url = 7;</code>
+         * @return The bytes for url.
+         */
+        public com.google.protobuf.ByteString
+            getUrlBytes() {
+          java.lang.Object ref = url_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            url_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         *多媒体url
+         * </pre>
+         *
+         * <code>string url = 7;</code>
+         * @param value The url to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUrl(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          url_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         *多媒体url
+         * </pre>
+         *
+         * <code>string url = 7;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearUrl() {
+          
+          url_ = getDefaultInstance().getUrl();
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         *多媒体url
+         * </pre>
+         *
+         * <code>string url = 7;</code>
+         * @param value The bytes for url to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUrlBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          url_ = value;
           onChanged();
           return this;
         }
@@ -6819,32 +7005,32 @@ public final class ProtoMsgOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016protoMsg.proto\022\024com.myim.common.pojo\"\310" +
+      "\n\016protoMsg.proto\022\024com.myim.common.pojo\"\326" +
       "\007\n\010ProtoMsg\032d\n\014LoginRequest\022\013\n\003uid\030\001 \001(\t" +
       "\022\020\n\010deviceId\030\002 \001(\t\022\022\n\ndeviceType\030\003 \001(\r\022\r" +
       "\n\005token\030\004 \001(\t\022\022\n\nappVersion\030\005 \001(\t\032:\n\rLog" +
       "inResponse\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001(\r" +
-      "\022\013\n\003msg\030\003 \001(\t\032v\n\016MessageRequest\022\021\n\tmessa" +
-      "geId\030\001 \001(\004\022\014\n\004from\030\002 \001(\t\022\n\n\002to\030\003 \001(\t\022\017\n\007" +
-      "content\030\004 \001(\t\022\021\n\ttimestamp\030\005 \001(\004\022\023\n\013mess" +
-      "ageType\030\006 \001(\004\032r\n\017MessageResponse\022\016\n\006resu" +
-      "lt\030\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\013\n\003msg\030\003 \001(\t\022\014\n\004h" +
-      "int\030\004 \001(\010\022\020\n\010finished\030\005 \001(\010\022\024\n\014messageIn" +
-      "dex\030\006 \001(\004\032\373\002\n\007Message\0228\n\004type\030\001 \001(\0162*.co" +
-      "m.myim.common.pojo.ProtoMsg.MessageType\022" +
-      "\021\n\tsessionId\030\002 \001(\t\022\013\n\003seq\030\003 \001(\004\022A\n\014login" +
-      "Request\030\004 \001(\0132+.com.myim.common.pojo.Pro" +
-      "toMsg.LoginRequest\022C\n\rloginResponse\030\005 \001(" +
-      "\0132,.com.myim.common.pojo.ProtoMsg.LoginR" +
-      "esponse\022E\n\016messageRequest\030\006 \001(\0132-.com.my" +
-      "im.common.pojo.ProtoMsg.MessageRequest\022G" +
-      "\n\017messageResponse\030\007 \001(\0132..com.myim.commo" +
-      "n.pojo.ProtoMsg.MessageResponse\"\257\001\n\013Mess" +
-      "ageType\022\r\n\tHEARTBEAT\020\000\022\026\n\022HEARTBEAT_RESP" +
-      "ONSE\020\001\022\021\n\rLOGIN_REQUEST\020\002\022\022\n\016LOGIN_RESPO" +
-      "NSE\020\003\022\022\n\016LOGOUT_REQUEST\020\004\022\023\n\017LOGOUT_RESP" +
-      "ONSE\020\005\022\023\n\017MESSAGE_REQUEST\020\006\022\024\n\020MESSAGE_R" +
-      "ESPONSE\020\007b\006proto3"
+      "\022\013\n\003msg\030\003 \001(\t\032\203\001\n\016MessageRequest\022\021\n\tmess" +
+      "ageId\030\001 \001(\004\022\014\n\004from\030\002 \001(\t\022\n\n\002to\030\003 \001(\t\022\017\n" +
+      "\007content\030\004 \001(\t\022\021\n\ttimestamp\030\005 \001(\004\022\023\n\013mes" +
+      "sageType\030\006 \001(\004\022\013\n\003url\030\007 \001(\t\032r\n\017MessageRe" +
+      "sponse\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\013\n\003" +
+      "msg\030\003 \001(\t\022\014\n\004hint\030\004 \001(\010\022\020\n\010finished\030\005 \001(" +
+      "\010\022\024\n\014messageIndex\030\006 \001(\004\032\373\002\n\007Message\0228\n\004t" +
+      "ype\030\001 \001(\0162*.com.myim.common.pojo.ProtoMs" +
+      "g.MessageType\022\021\n\tsessionId\030\002 \001(\t\022\013\n\003seq\030" +
+      "\003 \001(\004\022A\n\014loginRequest\030\004 \001(\0132+.com.myim.c" +
+      "ommon.pojo.ProtoMsg.LoginRequest\022C\n\rlogi" +
+      "nResponse\030\005 \001(\0132,.com.myim.common.pojo.P" +
+      "rotoMsg.LoginResponse\022E\n\016messageRequest\030" +
+      "\006 \001(\0132-.com.myim.common.pojo.ProtoMsg.Me" +
+      "ssageRequest\022G\n\017messageResponse\030\007 \001(\0132.." +
+      "com.myim.common.pojo.ProtoMsg.MessageRes" +
+      "ponse\"\257\001\n\013MessageType\022\r\n\tHEARTBEAT\020\000\022\026\n\022" +
+      "HEARTBEAT_RESPONSE\020\001\022\021\n\rLOGIN_REQUEST\020\002\022" +
+      "\022\n\016LOGIN_RESPONSE\020\003\022\022\n\016LOGOUT_REQUEST\020\004\022" +
+      "\023\n\017LOGOUT_RESPONSE\020\005\022\023\n\017MESSAGE_REQUEST\020" +
+      "\006\022\024\n\020MESSAGE_RESPONSE\020\007b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6873,7 +7059,7 @@ public final class ProtoMsgOuterClass {
     internal_static_com_myim_common_pojo_ProtoMsg_MessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_myim_common_pojo_ProtoMsg_MessageRequest_descriptor,
-        new java.lang.String[] { "MessageId", "From", "To", "Content", "Timestamp", "MessageType", });
+        new java.lang.String[] { "MessageId", "From", "To", "Content", "Timestamp", "MessageType", "Url", });
     internal_static_com_myim_common_pojo_ProtoMsg_MessageResponse_descriptor =
       internal_static_com_myim_common_pojo_ProtoMsg_descriptor.getNestedTypes().get(3);
     internal_static_com_myim_common_pojo_ProtoMsg_MessageResponse_fieldAccessorTable = new

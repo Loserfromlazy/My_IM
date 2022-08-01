@@ -17,10 +17,11 @@ import org.springframework.stereotype.Service;
  * @since 2022/7/27
  */
 @Service
-public class LoginCheckProcesser {
+public class LoginCheckProcessor implements BaseProcessor{
     @Autowired
     LoginResponseConverter converter;
 
+    @Override
     public boolean action(ServerSession session,ProtoMsgOuterClass.ProtoMsg.Message message){
         final ProtoMsgOuterClass.ProtoMsg.LoginRequest loginRequest = message.getLoginRequest();
         User user = User.fromLoginRequets(loginRequest);

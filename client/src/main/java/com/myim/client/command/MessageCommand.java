@@ -4,25 +4,23 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.Scanner;
-
 /**
  * <p>
- * LoginCommand
+ * MessageCommand
  * </p>
  *
  * @author Yuhaoran
- * @since 2022/6/9
+ * @since 2022/8/1
  */
-@Data
 @Slf4j
 @Component
-public class LoginCommand implements BaseCommand{
+@Data
+public class MessageCommand implements BaseCommand{
 
-    public static final String KEY = "2";
-    static String MES = "登录";
-    private String username;
-    private String password;
+    public static final String KEY = "3";
+    static String MES = "发消息";
+    private String uid;
+    private String content;
 
     @Override
     public String getKey() {
@@ -36,12 +34,12 @@ public class LoginCommand implements BaseCommand{
 
     @Override
     public void exec(String input) {
-        final String[] split = input.split("@");
+        final String[] split = input.split(":");
         if (split.length!= 2) {
-            log.error("格式不正确(id@password)");
+            log.error("格式不正确(用户id:消息内容)");
         } else {
-            username = split[0];
-            password = split[1];
+            uid = split[0];
+            content = split[1];
         }
     }
 }

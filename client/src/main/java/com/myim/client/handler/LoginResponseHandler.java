@@ -5,6 +5,7 @@ import com.myim.common.pojo.ProtoMsgOuterClass;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,6 +20,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginResponseHandler extends ChannelInboundHandlerAdapter {
 
+
+    @Autowired
+    MessageHandler messageHandler;
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
@@ -36,6 +40,7 @@ public class LoginResponseHandler extends ChannelInboundHandlerAdapter {
             ClientSession.loginSuccess(ctx.channel(),message.getSessionId());
             //增加心跳处理等处理器，去除登录响应处理器
             //ctx.channel().pipeline().addAfter("response","heartBeat",);
+            ctx.channel().pipeline().addAfter("loginResponse","messageHandler",messageHandler);
             ctx.channel().pipeline().remove("loginResponse");
         }else {
             log.error("登录失败,错误码{}，错误信息{}",loginResponse.getCode(),loginResponse.getMsg());

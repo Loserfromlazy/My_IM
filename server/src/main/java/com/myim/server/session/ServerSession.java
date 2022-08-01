@@ -6,6 +6,7 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.AttributeKey;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.UUID;
@@ -19,6 +20,7 @@ import java.util.UUID;
  * @since 2022/7/25
  */
 @Slf4j
+@Data
 public class ServerSession {
     static final AttributeKey<ServerSession> SESSION = AttributeKey.valueOf("SESSION");
 

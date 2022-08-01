@@ -23,9 +23,10 @@ public class ExceptionHandler extends ChannelInboundHandlerAdapter {
 
     @Autowired
     CommandController commandController;
+
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        if (cause instanceof InvalidException){
+        if (cause instanceof InvalidException) {
             log.error(cause.getMessage());
             ClientSession.close(ctx.channel());
         }
@@ -33,7 +34,7 @@ public class ExceptionHandler extends ChannelInboundHandlerAdapter {
         ctx.close();
 
         //重连
-        if (commandController == null){
+        if (commandController == null) {
             return;
         }
         commandController.startServer();

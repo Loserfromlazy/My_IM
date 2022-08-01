@@ -2,9 +2,11 @@ package com.myim.server.handler;
 
 import com.myim.common.concurrent.CallableTask;
 import com.myim.common.concurrent.GuavaTaskScheduler;
+import com.myim.common.exception.InvalidException;
 import com.myim.common.pojo.ProtoMsgOuterClass;
-import com.myim.server.process.LoginCheckProcessor;
+import com.myim.server.process.ChatProcessor;
 import com.myim.server.session.ServerSession;
+import com.myim.server.session.ServerSessionMap;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -13,60 +15,58 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
- * LoginRequestHandler
+ * ChatHandler
  * </p>
  *
  * @author Yuhaoran
- * @since 2022/7/27
+ * @since 2022/8/1
  */
 @Slf4j
 @Service
 @ChannelHandler.Sharable
-public class LoginRequestHandler extends ChannelInboundHandlerAdapter {
+public class ChatHandler extends ChannelInboundHandlerAdapter {
 
     @Autowired
-    LoginCheckProcessor loginCheckProcessor;
-
-    @Autowired
-    ChatHandler chatHandler;
+    ChatProcessor chatProcessor;
 
     static final AttributeKey<ServerSession> SESSION = AttributeKey.valueOf("SESSION");
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
         ProtoMsgOuterClass.ProtoMsg.Message message = (ProtoMsgOuterClass.ProtoMsg.Message) msg;
-        if (message.getType() != ProtoMsgOuterClass.ProtoMsg.MessageType.LOGIN_REQUEST){
+
+        if (message.getType() != ProtoMsgOuterClass.ProtoMsg.MessageType.MESSAGE_REQUEST){
             super.channelRead(ctx, msg);
             return;
         }
+        ProtoMsgOuterClass.ProtoMsg.MessageRequest messageRequest = message.getMessageRequest();
+        ServerSession serverSession = ctx.channel().attr(SESSION).get();
+        if (serverSession==null|| !serverSession.getIsLogin()){
+            log.error("发送消息失败，用户{}未登录",messageRequest.getFrom());
+            return;
+        }
+
         GuavaTaskScheduler.addTask(new CallableTask<Boolean>() {
             @Override
             public Boolean run() {
-                ServerSession serverSession = new ServerSession(ctx.channel());
-                return loginCheckProcessor.action(serverSession,message);
+                return chatProcessor.action(serverSession,message);
             }
-
             @Override
-            public void onSuccess(Boolean b) {
-                if (b){
-                    //添加心跳等处理器，删除登录处理器，进行流水线处理器的热插拔
-                    //ctx.pipeline().addAfter("login","heartBeat",new HeartBeatHandler());
-                    ctx.pipeline().addAfter("login","chat",chatHandler);
-                    ctx.pipeline().remove("login");
-                    log.info("登录成功");
+            public void onSuccess(Boolean o) {
+                if (o){
+                    log.info("消息发送成功");
                 }else {
-                    ServerSession.closeSession(ctx);
-                    log.info("登录失败");
+                    log.info("消息发送失败");
                 }
-            }
 
+            }
             @Override
             public void onError(Throwable t) {
-                ServerSession.closeSession(ctx);
-                log.error("登录发生错误，错误信息：{}",t.getMessage());
+                log.info("消息发送失败，失败原因{}",t.getMessage());
             }
         });
 

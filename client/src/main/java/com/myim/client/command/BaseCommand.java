@@ -17,7 +17,7 @@ public interface BaseCommand {
      * @author Yuhaoran
      * @date 2022/6/9 10:09
      */
-    public Integer getKey();
+    public String getKey();
 
     /**
      * Command类通用键值对应的信息

@@ -1,6 +1,5 @@
 package com.myim.client;
 
-import com.myim.client.handler.ExceptionHandler;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
 import io.netty.channel.embedded.EmbeddedChannel;
@@ -21,7 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @Slf4j
 public class TestExceptionCaught {
 
-    static class MockInboundExceptionHandler extends ChannelInboundHandlerAdapter{
+    static class MockInboundExceptionHandler extends ChannelInboundHandlerAdapter {
         @Override
         public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
@@ -46,7 +45,7 @@ public class TestExceptionCaught {
         }
     }
 
-    static class MyExceptionHandler extends ChannelInboundHandlerAdapter{
+    static class MyExceptionHandler extends ChannelInboundHandlerAdapter {
         @Override
         public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
             log.error(cause.getMessage());
@@ -54,7 +53,7 @@ public class TestExceptionCaught {
         }
     }
 
-    static class SendHandler extends ChannelInboundHandlerAdapter{
+    static class SendHandler extends ChannelInboundHandlerAdapter {
 
         @Override
         public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -66,12 +65,12 @@ public class TestExceptionCaught {
             channelFuture.addListener(new ChannelFutureListener() {
                 @Override
                 public void operationComplete(ChannelFuture future) throws Exception {
-                    if (future.isSuccess()){
+                    if (future.isSuccess()) {
                         log.info("执行成功");
-                    }else if (future.isCancelled()){
+                    } else if (future.isCancelled()) {
                         log.info("执行失败");
-                    }else if (future.cause()!=null){
-                        log.info("执行出错，错误信息{}",future.cause().getMessage());
+                    } else if (future.cause() != null) {
+                        log.info("执行出错，错误信息{}", future.cause().getMessage());
                     }
                 }
             });
@@ -80,7 +79,7 @@ public class TestExceptionCaught {
     }
 
     @Test
-    public void testInBoundExceptionCaught(){
+    public void testInBoundExceptionCaught() {
         ChannelInitializer channelInitializer = new ChannelInitializer() {
             @Override
             protected void initChannel(Channel channel) throws Exception {
@@ -94,7 +93,7 @@ public class TestExceptionCaught {
     }
 
     @Test
-    public void testOutBoundExceptionCaught(){
+    public void testOutBoundExceptionCaught() {
         ChannelInitializer channelInitializer = new ChannelInitializer() {
             @Override
             protected void initChannel(Channel channel) throws Exception {
