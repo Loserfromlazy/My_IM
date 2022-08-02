@@ -34,8 +34,9 @@ public class MenuCommand implements BaseCommand {
     }
 
     @Override
-    public void exec(String input) {
+    public boolean exec(String input) {
         this.command = input;
+        return true;
     }
 
     /**

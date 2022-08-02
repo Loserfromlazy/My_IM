@@ -33,13 +33,15 @@ public class LoginCommand implements BaseCommand{
     }
 
     @Override
-    public void exec(String input) {
+    public boolean exec(String input) {
         final String[] split = input.split("@");
         if (split.length!= 2) {
             log.error("格式不正确(id@password)");
+            return false;
         } else {
             uid = split[0];
             password = split[1];
         }
+        return true;
     }
 }

@@ -33,5 +33,5 @@ public interface BaseCommand {
      * @author Yuhaoran
      * @date 2022/6/9 10:09
      */
-    public void exec(String input);
+    public boolean exec(String input);
 }

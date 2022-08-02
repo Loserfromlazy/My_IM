@@ -28,7 +28,7 @@ public class ExceptionHandler extends ChannelInboundHandlerAdapter {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         if (cause instanceof InvalidException) {
             log.error(cause.getMessage());
-            ClientSession.close(ctx.channel());
+            ClientSession.getClientSession(ctx).close();
         }
         log.error(cause.getMessage());
         ctx.close();

@@ -7,8 +7,12 @@ import com.myim.client.start.ChatClient;
 import com.myim.common.concurrent.TaskScheduler;
 import com.myim.common.entity.ChatMessage;
 import com.myim.common.entity.User;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.EventLoop;
+import io.netty.util.AttributeKey;
+import io.netty.util.concurrent.GenericFutureListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -52,6 +56,8 @@ public class CommandController {
 
     ClientSession clientSession;
 
+    public static final AttributeKey<ClientSession> SESSION =   AttributeKey.valueOf("SESSION");
+
     private boolean isConnect = false;
 
     public void startServer() {
@@ -80,12 +86,16 @@ public class CommandController {
                         break;
                     case LoginCommand.KEY:
                         System.out.println("请输入用户名密码(username@password)：");
-                        baseCommand.exec(scanner.nextLine());
+                        if (!baseCommand.exec(scanner.nextLine())){
+                            break;
+                        }
                         startLogin();
                         break;
                     case MessageCommand.KEY:
                         System.out.println("请输入发送人和消息(uid:message)");
-                        baseCommand.exec(scanner.nextLine());
+                        if (!baseCommand.exec(scanner.nextLine())){
+                            break;
+                        }
                         startChat();
                         break;
                     default:
@@ -132,7 +142,6 @@ public class CommandController {
     /**
      * 连接回调监听器
      *
-     * @author Yuhaoran
      * @date 2022/7/28 13:13
      */
     ChannelFutureListener channelFutureListener = channelFuture -> {
@@ -140,6 +149,12 @@ public class CommandController {
             this.isConnect = true;
             log.info("连接成功");
             clientSession = new ClientSession(channelFuture.channel());
+            channelFuture.channel().closeFuture().addListener((ChannelFutureListener) channelFuture1 -> {
+                log.info("连接关闭");
+                Channel channel = channelFuture1.channel();
+                ClientSession clientSession = channel.attr(SESSION).get();
+                clientSession.close();
+            });
             notifyConnect();
         } else {
             this.isConnect = false;

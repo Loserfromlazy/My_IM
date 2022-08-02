@@ -33,13 +33,15 @@ public class MessageCommand implements BaseCommand{
     }
 
     @Override
-    public void exec(String input) {
+    public boolean exec(String input) {
         final String[] split = input.split(":");
         if (split.length!= 2) {
             log.error("格式不正确(用户id:消息内容)");
+            return false;
         } else {
             uid = split[0];
             content = split[1];
         }
+        return true;
     }
 }

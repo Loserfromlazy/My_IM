@@ -70,16 +70,14 @@ public class ClientSession {
     /**
      * 关闭会话
      *
-     * @return ChannelFuture 关闭回调
      */
-    public static ChannelFuture close(Channel channel) {
+    public synchronized void close() {
         ChannelFuture channelFuture = channel.closeFuture();
         channelFuture.addListener((ChannelFutureListener) channelFuture1 -> {
             if (channelFuture1.isSuccess()){
                 log.info("关闭成功");
             }
         });
-        return channelFuture;
     }
 
 

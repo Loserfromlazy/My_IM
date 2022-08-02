@@ -58,8 +58,8 @@ public class ChatClient {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new SimpleProtobufDecoder());
-                        ch.pipeline().addLast(new SimpleProtobufEncoder());
+                        ch.pipeline().addLast("decoder",new SimpleProtobufDecoder());
+                        ch.pipeline().addLast("encoder",new SimpleProtobufEncoder());
                         ch.pipeline().addLast("loginResponse",loginResponseHandler);
                         ch.pipeline().addLast(exceptionHandler);
                     }

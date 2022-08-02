@@ -2,7 +2,6 @@ package com.myim.client.handler;
 
 import com.myim.client.converter.HeartBeatConverter;
 import com.myim.client.session.ClientSession;
-import com.myim.common.entity.User;
 import com.myim.common.pojo.ProtoMsgOuterClass;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -23,29 +22,31 @@ public class HeartBeatHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ProtoMsgOuterClass.ProtoMsg.Message message = (ProtoMsgOuterClass.ProtoMsg.Message) msg;
-        if (message.getType() != ProtoMsgOuterClass.ProtoMsg.MessageType.HEARTBEAT){
+        if (message.getType() != ProtoMsgOuterClass.ProtoMsg.MessageType.HEARTBEAT) {
             super.channelRead(ctx, msg);
-        }else {
+        } else {
             log.info("收到心跳回复");
+            super.channelRead(ctx, msg);
         }
 
     }
 
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
-        log.info("111");
         ClientSession clientSession = ClientSession.getClientSession(ctx);
-        HeartBeatConverter converter = new HeartBeatConverter(ProtoMsgOuterClass.ProtoMsg.MessageType.HEARTBEAT,clientSession,clientSession.getUser());
+        HeartBeatConverter converter = new HeartBeatConverter(ProtoMsgOuterClass.ProtoMsg.MessageType.HEARTBEAT, clientSession, clientSession.getUser());
         final ProtoMsgOuterClass.ProtoMsg.Message message = converter.getHeartBeatMsg();
-        heartBeat(ctx,message);
+        heartBeat(ctx, message);
     }
 
     public void heartBeat(ChannelHandlerContext ctx, ProtoMsgOuterClass.ProtoMsg.Message message) {
         final EventExecutor executor = ctx.executor();
         executor.schedule(() -> {
-            log.info("发送消息给服务端");
-            ctx.pipeline().writeAndFlush(message);
-            heartBeat(ctx,message);
-        },HEARTBEAT_TIME, TimeUnit.SECONDS);
+            if (ctx.channel().isActive()) {
+                log.info("发送消息给服务端");
+                ctx.pipeline().writeAndFlush(message);
+                heartBeat(ctx, message);
+            }
+        }, HEARTBEAT_TIME, TimeUnit.SECONDS);
     }
 }
