@@ -2,11 +2,10 @@ package com.myim.server.session;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -19,6 +18,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class ServerSessionMap {
     private ConcurrentMap<String, ServerSession> concurrentMap = new ConcurrentHashMap<>();
+    private ConcurrentMap<String, List<ServerSession>> userMap = new ConcurrentHashMap<>();
 
 
     //饿汉式单例模式
@@ -33,6 +33,14 @@ public class ServerSessionMap {
 
     public void addSession(ServerSession session) {
         concurrentMap.put(session.getSessionId(), session);
+        String uid = session.getUser().getUid();
+        if (userMap.get(uid) == null || userMap.get(uid).size() == 0) {
+            List<ServerSession> sessionList = new ArrayList<>();
+            sessionList.add(session);
+            userMap.put(session.getUser().getUid(), sessionList);
+        } else {
+            userMap.get(uid).add(session);
+        }
         log.info("uid={}上线", session.getUser().getUid());
     }
 
@@ -54,17 +62,13 @@ public class ServerSessionMap {
     }
 
     /**
-     * 根据用户Id获取Session列表（待优化）
+     * 根据用户Id获取Session列表
      *
      * @author Yuhaoran
      * @date 2022/7/25 13:58
      */
     public List<ServerSession> getSessionByUserId(String userId) {
-        //todo 待优化
-        List<ServerSession> collect = concurrentMap.values().stream()
-                .filter(session -> Objects.equals(session.getUser().getUid(), userId))
-                .collect(Collectors.toList());
-        return collect;
+        return userMap.get(userId);
     }
 
 
