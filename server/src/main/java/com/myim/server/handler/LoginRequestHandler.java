@@ -29,8 +29,6 @@ public class LoginRequestHandler extends ChannelInboundHandlerAdapter {
     @Autowired
     LoginCheckProcessor loginCheckProcessor;
 
-    @Autowired
-    HeartBeatServerHandler heartBeatServerHandler;
 
     @Autowired
     ChatHandler chatHandler;
@@ -56,7 +54,7 @@ public class LoginRequestHandler extends ChannelInboundHandlerAdapter {
             public void onSuccess(Boolean b) {
                 if (b){
                     //添加心跳等处理器，删除登录处理器，进行流水线处理器的热插拔
-                    ctx.pipeline().addAfter("login","heartBeat",heartBeatServerHandler);
+                    ctx.pipeline().addAfter("login","heartBeat",new HeartBeatServerHandler());
                     ctx.pipeline().addAfter("login","chat",chatHandler);
                     ctx.pipeline().remove("login");
                     log.info("登录成功");

@@ -4797,6 +4797,796 @@ public final class ProtoMsgOuterClass {
 
     }
 
+    public interface MessageHeartBeatOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:com.myim.common.pojo.ProtoMsg.MessageHeartBeat)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>uint32 seq = 1;</code>
+       * @return The seq.
+       */
+      int getSeq();
+
+      /**
+       * <code>string uid = 2;</code>
+       * @return The uid.
+       */
+      java.lang.String getUid();
+      /**
+       * <code>string uid = 2;</code>
+       * @return The bytes for uid.
+       */
+      com.google.protobuf.ByteString
+          getUidBytes();
+
+      /**
+       * <code>string json = 3;</code>
+       * @return The json.
+       */
+      java.lang.String getJson();
+      /**
+       * <code>string json = 3;</code>
+       * @return The bytes for json.
+       */
+      com.google.protobuf.ByteString
+          getJsonBytes();
+    }
+    /**
+     * Protobuf type {@code com.myim.common.pojo.ProtoMsg.MessageHeartBeat}
+     */
+    public static final class MessageHeartBeat extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:com.myim.common.pojo.ProtoMsg.MessageHeartBeat)
+        MessageHeartBeatOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use MessageHeartBeat.newBuilder() to construct.
+      private MessageHeartBeat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private MessageHeartBeat() {
+        uid_ = "";
+        json_ = "";
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new MessageHeartBeat();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private MessageHeartBeat(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+
+                seq_ = input.readUInt32();
+                break;
+              }
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                uid_ = s;
+                break;
+              }
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                json_ = s;
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.myim.common.pojo.ProtoMsgOuterClass.internal_static_com_myim_common_pojo_ProtoMsg_MessageHeartBeat_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.myim.common.pojo.ProtoMsgOuterClass.internal_static_com_myim_common_pojo_ProtoMsg_MessageHeartBeat_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.class, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.Builder.class);
+      }
+
+      public static final int SEQ_FIELD_NUMBER = 1;
+      private int seq_;
+      /**
+       * <code>uint32 seq = 1;</code>
+       * @return The seq.
+       */
+      @java.lang.Override
+      public int getSeq() {
+        return seq_;
+      }
+
+      public static final int UID_FIELD_NUMBER = 2;
+      private volatile java.lang.Object uid_;
+      /**
+       * <code>string uid = 2;</code>
+       * @return The uid.
+       */
+      @java.lang.Override
+      public java.lang.String getUid() {
+        java.lang.Object ref = uid_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uid_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string uid = 2;</code>
+       * @return The bytes for uid.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getUidBytes() {
+        java.lang.Object ref = uid_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int JSON_FIELD_NUMBER = 3;
+      private volatile java.lang.Object json_;
+      /**
+       * <code>string json = 3;</code>
+       * @return The json.
+       */
+      @java.lang.Override
+      public java.lang.String getJson() {
+        java.lang.Object ref = json_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          json_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string json = 3;</code>
+       * @return The bytes for json.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getJsonBytes() {
+        java.lang.Object ref = json_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          json_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (seq_ != 0) {
+          output.writeUInt32(1, seq_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uid_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, uid_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, json_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (seq_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(1, seq_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uid_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, uid_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(json_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, json_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat)) {
+          return super.equals(obj);
+        }
+        com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat other = (com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat) obj;
+
+        if (getSeq()
+            != other.getSeq()) return false;
+        if (!getUid()
+            .equals(other.getUid())) return false;
+        if (!getJson()
+            .equals(other.getJson())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + SEQ_FIELD_NUMBER;
+        hash = (53 * hash) + getSeq();
+        hash = (37 * hash) + UID_FIELD_NUMBER;
+        hash = (53 * hash) + getUid().hashCode();
+        hash = (37 * hash) + JSON_FIELD_NUMBER;
+        hash = (53 * hash) + getJson().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code com.myim.common.pojo.ProtoMsg.MessageHeartBeat}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:com.myim.common.pojo.ProtoMsg.MessageHeartBeat)
+          com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeatOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.myim.common.pojo.ProtoMsgOuterClass.internal_static_com_myim_common_pojo_ProtoMsg_MessageHeartBeat_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.myim.common.pojo.ProtoMsgOuterClass.internal_static_com_myim_common_pojo_ProtoMsg_MessageHeartBeat_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.class, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.Builder.class);
+        }
+
+        // Construct using com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          seq_ = 0;
+
+          uid_ = "";
+
+          json_ = "";
+
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.myim.common.pojo.ProtoMsgOuterClass.internal_static_com_myim_common_pojo_ProtoMsg_MessageHeartBeat_descriptor;
+        }
+
+        @java.lang.Override
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat getDefaultInstanceForType() {
+          return com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat build() {
+          com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat buildPartial() {
+          com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat result = new com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat(this);
+          result.seq_ = seq_;
+          result.uid_ = uid_;
+          result.json_ = json_;
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat) {
+            return mergeFrom((com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat other) {
+          if (other == com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.getDefaultInstance()) return this;
+          if (other.getSeq() != 0) {
+            setSeq(other.getSeq());
+          }
+          if (!other.getUid().isEmpty()) {
+            uid_ = other.uid_;
+            onChanged();
+          }
+          if (!other.getJson().isEmpty()) {
+            json_ = other.json_;
+            onChanged();
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private int seq_ ;
+        /**
+         * <code>uint32 seq = 1;</code>
+         * @return The seq.
+         */
+        @java.lang.Override
+        public int getSeq() {
+          return seq_;
+        }
+        /**
+         * <code>uint32 seq = 1;</code>
+         * @param value The seq to set.
+         * @return This builder for chaining.
+         */
+        public Builder setSeq(int value) {
+          
+          seq_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>uint32 seq = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearSeq() {
+          
+          seq_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object uid_ = "";
+        /**
+         * <code>string uid = 2;</code>
+         * @return The uid.
+         */
+        public java.lang.String getUid() {
+          java.lang.Object ref = uid_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            uid_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string uid = 2;</code>
+         * @return The bytes for uid.
+         */
+        public com.google.protobuf.ByteString
+            getUidBytes() {
+          java.lang.Object ref = uid_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            uid_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string uid = 2;</code>
+         * @param value The uid to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUid(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          uid_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string uid = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearUid() {
+          
+          uid_ = getDefaultInstance().getUid();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string uid = 2;</code>
+         * @param value The bytes for uid to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUidBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          uid_ = value;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object json_ = "";
+        /**
+         * <code>string json = 3;</code>
+         * @return The json.
+         */
+        public java.lang.String getJson() {
+          java.lang.Object ref = json_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            json_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string json = 3;</code>
+         * @return The bytes for json.
+         */
+        public com.google.protobuf.ByteString
+            getJsonBytes() {
+          java.lang.Object ref = json_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            json_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string json = 3;</code>
+         * @param value The json to set.
+         * @return This builder for chaining.
+         */
+        public Builder setJson(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          json_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string json = 3;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearJson() {
+          
+          json_ = getDefaultInstance().getJson();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string json = 3;</code>
+         * @param value The bytes for json to set.
+         * @return This builder for chaining.
+         */
+        public Builder setJsonBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          json_ = value;
+          onChanged();
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:com.myim.common.pojo.ProtoMsg.MessageHeartBeat)
+      }
+
+      // @@protoc_insertion_point(class_scope:com.myim.common.pojo.ProtoMsg.MessageHeartBeat)
+      private static final com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat();
+      }
+
+      public static com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<MessageHeartBeat>
+          PARSER = new com.google.protobuf.AbstractParser<MessageHeartBeat>() {
+        @java.lang.Override
+        public MessageHeartBeat parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new MessageHeartBeat(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<MessageHeartBeat> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<MessageHeartBeat> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
     public interface MessageOrBuilder extends
         // @@protoc_insertion_point(interface_extends:com.myim.common.pojo.ProtoMsg.Message)
         com.google.protobuf.MessageOrBuilder {
@@ -4932,19 +5722,58 @@ public final class ProtoMsgOuterClass {
       com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageRequestOrBuilder getMessageRequestOrBuilder();
 
       /**
+       * <pre>
+       *消息返回
+       * </pre>
+       *
        * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
        * @return Whether the messageResponse field is set.
        */
       boolean hasMessageResponse();
       /**
+       * <pre>
+       *消息返回
+       * </pre>
+       *
        * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
        * @return The messageResponse.
        */
       com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse getMessageResponse();
       /**
+       * <pre>
+       *消息返回
+       * </pre>
+       *
        * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
        */
       com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponseOrBuilder getMessageResponseOrBuilder();
+
+      /**
+       * <pre>
+       *心跳消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+       * @return Whether the messageHeartBeat field is set.
+       */
+      boolean hasMessageHeartBeat();
+      /**
+       * <pre>
+       *心跳消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+       * @return The messageHeartBeat.
+       */
+      com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat getMessageHeartBeat();
+      /**
+       * <pre>
+       *心跳消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+       */
+      com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeatOrBuilder getMessageHeartBeatOrBuilder();
     }
     /**
      * Protobuf type {@code com.myim.common.pojo.ProtoMsg.Message}
@@ -5058,6 +5887,19 @@ public final class ProtoMsgOuterClass {
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(messageResponse_);
                   messageResponse_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 66: {
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.Builder subBuilder = null;
+                if (messageHeartBeat_ != null) {
+                  subBuilder = messageHeartBeat_.toBuilder();
+                }
+                messageHeartBeat_ = input.readMessage(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(messageHeartBeat_);
+                  messageHeartBeat_ = subBuilder.buildPartial();
                 }
 
                 break;
@@ -5301,6 +6143,10 @@ public final class ProtoMsgOuterClass {
       public static final int MESSAGERESPONSE_FIELD_NUMBER = 7;
       private com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse messageResponse_;
       /**
+       * <pre>
+       *消息返回
+       * </pre>
+       *
        * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
        * @return Whether the messageResponse field is set.
        */
@@ -5309,6 +6155,10 @@ public final class ProtoMsgOuterClass {
         return messageResponse_ != null;
       }
       /**
+       * <pre>
+       *消息返回
+       * </pre>
+       *
        * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
        * @return The messageResponse.
        */
@@ -5317,11 +6167,53 @@ public final class ProtoMsgOuterClass {
         return messageResponse_ == null ? com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.getDefaultInstance() : messageResponse_;
       }
       /**
+       * <pre>
+       *消息返回
+       * </pre>
+       *
        * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
        */
       @java.lang.Override
       public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponseOrBuilder getMessageResponseOrBuilder() {
         return getMessageResponse();
+      }
+
+      public static final int MESSAGEHEARTBEAT_FIELD_NUMBER = 8;
+      private com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat messageHeartBeat_;
+      /**
+       * <pre>
+       *心跳消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+       * @return Whether the messageHeartBeat field is set.
+       */
+      @java.lang.Override
+      public boolean hasMessageHeartBeat() {
+        return messageHeartBeat_ != null;
+      }
+      /**
+       * <pre>
+       *心跳消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+       * @return The messageHeartBeat.
+       */
+      @java.lang.Override
+      public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat getMessageHeartBeat() {
+        return messageHeartBeat_ == null ? com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.getDefaultInstance() : messageHeartBeat_;
+      }
+      /**
+       * <pre>
+       *心跳消息
+       * </pre>
+       *
+       * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+       */
+      @java.lang.Override
+      public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeatOrBuilder getMessageHeartBeatOrBuilder() {
+        return getMessageHeartBeat();
       }
 
       private byte memoizedIsInitialized = -1;
@@ -5359,6 +6251,9 @@ public final class ProtoMsgOuterClass {
         if (messageResponse_ != null) {
           output.writeMessage(7, getMessageResponse());
         }
+        if (messageHeartBeat_ != null) {
+          output.writeMessage(8, getMessageHeartBeat());
+        }
         unknownFields.writeTo(output);
       }
 
@@ -5394,6 +6289,10 @@ public final class ProtoMsgOuterClass {
         if (messageResponse_ != null) {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(7, getMessageResponse());
+        }
+        if (messageHeartBeat_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(8, getMessageHeartBeat());
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -5435,6 +6334,11 @@ public final class ProtoMsgOuterClass {
           if (!getMessageResponse()
               .equals(other.getMessageResponse())) return false;
         }
+        if (hasMessageHeartBeat() != other.hasMessageHeartBeat()) return false;
+        if (hasMessageHeartBeat()) {
+          if (!getMessageHeartBeat()
+              .equals(other.getMessageHeartBeat())) return false;
+        }
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -5468,6 +6372,10 @@ public final class ProtoMsgOuterClass {
         if (hasMessageResponse()) {
           hash = (37 * hash) + MESSAGERESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getMessageResponse().hashCode();
+        }
+        if (hasMessageHeartBeat()) {
+          hash = (37 * hash) + MESSAGEHEARTBEAT_FIELD_NUMBER;
+          hash = (53 * hash) + getMessageHeartBeat().hashCode();
         }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
@@ -5632,6 +6540,12 @@ public final class ProtoMsgOuterClass {
             messageResponse_ = null;
             messageResponseBuilder_ = null;
           }
+          if (messageHeartBeatBuilder_ == null) {
+            messageHeartBeat_ = null;
+          } else {
+            messageHeartBeat_ = null;
+            messageHeartBeatBuilder_ = null;
+          }
           return this;
         }
 
@@ -5680,6 +6594,11 @@ public final class ProtoMsgOuterClass {
             result.messageResponse_ = messageResponse_;
           } else {
             result.messageResponse_ = messageResponseBuilder_.build();
+          }
+          if (messageHeartBeatBuilder_ == null) {
+            result.messageHeartBeat_ = messageHeartBeat_;
+          } else {
+            result.messageHeartBeat_ = messageHeartBeatBuilder_.build();
           }
           onBuilt();
           return result;
@@ -5750,6 +6669,9 @@ public final class ProtoMsgOuterClass {
           }
           if (other.hasMessageResponse()) {
             mergeMessageResponse(other.getMessageResponse());
+          }
+          if (other.hasMessageHeartBeat()) {
+            mergeMessageHeartBeat(other.getMessageHeartBeat());
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -6462,6 +7384,10 @@ public final class ProtoMsgOuterClass {
         private com.google.protobuf.SingleFieldBuilderV3<
             com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.Builder, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponseOrBuilder> messageResponseBuilder_;
         /**
+         * <pre>
+         *消息返回
+         * </pre>
+         *
          * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
          * @return Whether the messageResponse field is set.
          */
@@ -6469,6 +7395,10 @@ public final class ProtoMsgOuterClass {
           return messageResponseBuilder_ != null || messageResponse_ != null;
         }
         /**
+         * <pre>
+         *消息返回
+         * </pre>
+         *
          * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
          * @return The messageResponse.
          */
@@ -6480,6 +7410,10 @@ public final class ProtoMsgOuterClass {
           }
         }
         /**
+         * <pre>
+         *消息返回
+         * </pre>
+         *
          * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
          */
         public Builder setMessageResponse(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse value) {
@@ -6496,6 +7430,10 @@ public final class ProtoMsgOuterClass {
           return this;
         }
         /**
+         * <pre>
+         *消息返回
+         * </pre>
+         *
          * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
          */
         public Builder setMessageResponse(
@@ -6510,6 +7448,10 @@ public final class ProtoMsgOuterClass {
           return this;
         }
         /**
+         * <pre>
+         *消息返回
+         * </pre>
+         *
          * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
          */
         public Builder mergeMessageResponse(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse value) {
@@ -6528,6 +7470,10 @@ public final class ProtoMsgOuterClass {
           return this;
         }
         /**
+         * <pre>
+         *消息返回
+         * </pre>
+         *
          * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
          */
         public Builder clearMessageResponse() {
@@ -6542,6 +7488,10 @@ public final class ProtoMsgOuterClass {
           return this;
         }
         /**
+         * <pre>
+         *消息返回
+         * </pre>
+         *
          * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
          */
         public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponse.Builder getMessageResponseBuilder() {
@@ -6550,6 +7500,10 @@ public final class ProtoMsgOuterClass {
           return getMessageResponseFieldBuilder().getBuilder();
         }
         /**
+         * <pre>
+         *消息返回
+         * </pre>
+         *
          * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
          */
         public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageResponseOrBuilder getMessageResponseOrBuilder() {
@@ -6561,6 +7515,10 @@ public final class ProtoMsgOuterClass {
           }
         }
         /**
+         * <pre>
+         *消息返回
+         * </pre>
+         *
          * <code>.com.myim.common.pojo.ProtoMsg.MessageResponse messageResponse = 7;</code>
          */
         private com.google.protobuf.SingleFieldBuilderV3<
@@ -6575,6 +7533,161 @@ public final class ProtoMsgOuterClass {
             messageResponse_ = null;
           }
           return messageResponseBuilder_;
+        }
+
+        private com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat messageHeartBeat_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.Builder, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeatOrBuilder> messageHeartBeatBuilder_;
+        /**
+         * <pre>
+         *心跳消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+         * @return Whether the messageHeartBeat field is set.
+         */
+        public boolean hasMessageHeartBeat() {
+          return messageHeartBeatBuilder_ != null || messageHeartBeat_ != null;
+        }
+        /**
+         * <pre>
+         *心跳消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+         * @return The messageHeartBeat.
+         */
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat getMessageHeartBeat() {
+          if (messageHeartBeatBuilder_ == null) {
+            return messageHeartBeat_ == null ? com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.getDefaultInstance() : messageHeartBeat_;
+          } else {
+            return messageHeartBeatBuilder_.getMessage();
+          }
+        }
+        /**
+         * <pre>
+         *心跳消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+         */
+        public Builder setMessageHeartBeat(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat value) {
+          if (messageHeartBeatBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            messageHeartBeat_ = value;
+            onChanged();
+          } else {
+            messageHeartBeatBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *心跳消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+         */
+        public Builder setMessageHeartBeat(
+            com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.Builder builderForValue) {
+          if (messageHeartBeatBuilder_ == null) {
+            messageHeartBeat_ = builderForValue.build();
+            onChanged();
+          } else {
+            messageHeartBeatBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *心跳消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+         */
+        public Builder mergeMessageHeartBeat(com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat value) {
+          if (messageHeartBeatBuilder_ == null) {
+            if (messageHeartBeat_ != null) {
+              messageHeartBeat_ =
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.newBuilder(messageHeartBeat_).mergeFrom(value).buildPartial();
+            } else {
+              messageHeartBeat_ = value;
+            }
+            onChanged();
+          } else {
+            messageHeartBeatBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *心跳消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+         */
+        public Builder clearMessageHeartBeat() {
+          if (messageHeartBeatBuilder_ == null) {
+            messageHeartBeat_ = null;
+            onChanged();
+          } else {
+            messageHeartBeat_ = null;
+            messageHeartBeatBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *心跳消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+         */
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.Builder getMessageHeartBeatBuilder() {
+          
+          onChanged();
+          return getMessageHeartBeatFieldBuilder().getBuilder();
+        }
+        /**
+         * <pre>
+         *心跳消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+         */
+        public com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeatOrBuilder getMessageHeartBeatOrBuilder() {
+          if (messageHeartBeatBuilder_ != null) {
+            return messageHeartBeatBuilder_.getMessageOrBuilder();
+          } else {
+            return messageHeartBeat_ == null ?
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.getDefaultInstance() : messageHeartBeat_;
+          }
+        }
+        /**
+         * <pre>
+         *心跳消息
+         * </pre>
+         *
+         * <code>.com.myim.common.pojo.ProtoMsg.MessageHeartBeat messageHeartBeat = 8;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.Builder, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeatOrBuilder> 
+            getMessageHeartBeatFieldBuilder() {
+          if (messageHeartBeatBuilder_ == null) {
+            messageHeartBeatBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeat.Builder, com.myim.common.pojo.ProtoMsgOuterClass.ProtoMsg.MessageHeartBeatOrBuilder>(
+                    getMessageHeartBeat(),
+                    getParentForChildren(),
+                    isClean());
+            messageHeartBeat_ = null;
+          }
+          return messageHeartBeatBuilder_;
         }
         @java.lang.Override
         public final Builder setUnknownFields(
@@ -6992,6 +8105,11 @@ public final class ProtoMsgOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_myim_common_pojo_ProtoMsg_MessageResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_myim_common_pojo_ProtoMsg_MessageHeartBeat_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_myim_common_pojo_ProtoMsg_MessageHeartBeat_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_myim_common_pojo_ProtoMsg_Message_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -7005,8 +8123,8 @@ public final class ProtoMsgOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016protoMsg.proto\022\024com.myim.common.pojo\"\326" +
-      "\007\n\010ProtoMsg\032d\n\014LoginRequest\022\013\n\003uid\030\001 \001(\t" +
+      "\n\016protoMsg.proto\022\024com.myim.common.pojo\"\335" +
+      "\010\n\010ProtoMsg\032d\n\014LoginRequest\022\013\n\003uid\030\001 \001(\t" +
       "\022\020\n\010deviceId\030\002 \001(\t\022\022\n\ndeviceType\030\003 \001(\r\022\r" +
       "\n\005token\030\004 \001(\t\022\022\n\nappVersion\030\005 \001(\t\032:\n\rLog" +
       "inResponse\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001(\r" +
@@ -7016,21 +8134,25 @@ public final class ProtoMsgOuterClass {
       "sageType\030\006 \001(\004\022\013\n\003url\030\007 \001(\t\032r\n\017MessageRe" +
       "sponse\022\016\n\006result\030\001 \001(\010\022\014\n\004code\030\002 \001(\r\022\013\n\003" +
       "msg\030\003 \001(\t\022\014\n\004hint\030\004 \001(\010\022\020\n\010finished\030\005 \001(" +
-      "\010\022\024\n\014messageIndex\030\006 \001(\004\032\373\002\n\007Message\0228\n\004t" +
-      "ype\030\001 \001(\0162*.com.myim.common.pojo.ProtoMs" +
-      "g.MessageType\022\021\n\tsessionId\030\002 \001(\t\022\013\n\003seq\030" +
-      "\003 \001(\004\022A\n\014loginRequest\030\004 \001(\0132+.com.myim.c" +
-      "ommon.pojo.ProtoMsg.LoginRequest\022C\n\rlogi" +
-      "nResponse\030\005 \001(\0132,.com.myim.common.pojo.P" +
-      "rotoMsg.LoginResponse\022E\n\016messageRequest\030" +
-      "\006 \001(\0132-.com.myim.common.pojo.ProtoMsg.Me" +
-      "ssageRequest\022G\n\017messageResponse\030\007 \001(\0132.." +
-      "com.myim.common.pojo.ProtoMsg.MessageRes" +
-      "ponse\"\257\001\n\013MessageType\022\r\n\tHEARTBEAT\020\000\022\026\n\022" +
-      "HEARTBEAT_RESPONSE\020\001\022\021\n\rLOGIN_REQUEST\020\002\022" +
-      "\022\n\016LOGIN_RESPONSE\020\003\022\022\n\016LOGOUT_REQUEST\020\004\022" +
-      "\023\n\017LOGOUT_RESPONSE\020\005\022\023\n\017MESSAGE_REQUEST\020" +
-      "\006\022\024\n\020MESSAGE_RESPONSE\020\007b\006proto3"
+      "\010\022\024\n\014messageIndex\030\006 \001(\004\032:\n\020MessageHeartB" +
+      "eat\022\013\n\003seq\030\001 \001(\r\022\013\n\003uid\030\002 \001(\t\022\014\n\004json\030\003 " +
+      "\001(\t\032\306\003\n\007Message\0228\n\004type\030\001 \001(\0162*.com.myim" +
+      ".common.pojo.ProtoMsg.MessageType\022\021\n\tses" +
+      "sionId\030\002 \001(\t\022\013\n\003seq\030\003 \001(\004\022A\n\014loginReques" +
+      "t\030\004 \001(\0132+.com.myim.common.pojo.ProtoMsg." +
+      "LoginRequest\022C\n\rloginResponse\030\005 \001(\0132,.co" +
+      "m.myim.common.pojo.ProtoMsg.LoginRespons" +
+      "e\022E\n\016messageRequest\030\006 \001(\0132-.com.myim.com" +
+      "mon.pojo.ProtoMsg.MessageRequest\022G\n\017mess" +
+      "ageResponse\030\007 \001(\0132..com.myim.common.pojo" +
+      ".ProtoMsg.MessageResponse\022I\n\020messageHear" +
+      "tBeat\030\010 \001(\0132/.com.myim.common.pojo.Proto" +
+      "Msg.MessageHeartBeat\"\257\001\n\013MessageType\022\r\n\t" +
+      "HEARTBEAT\020\000\022\026\n\022HEARTBEAT_RESPONSE\020\001\022\021\n\rL" +
+      "OGIN_REQUEST\020\002\022\022\n\016LOGIN_RESPONSE\020\003\022\022\n\016LO" +
+      "GOUT_REQUEST\020\004\022\023\n\017LOGOUT_RESPONSE\020\005\022\023\n\017M" +
+      "ESSAGE_REQUEST\020\006\022\024\n\020MESSAGE_RESPONSE\020\007b\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7066,12 +8188,18 @@ public final class ProtoMsgOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_myim_common_pojo_ProtoMsg_MessageResponse_descriptor,
         new java.lang.String[] { "Result", "Code", "Msg", "Hint", "Finished", "MessageIndex", });
-    internal_static_com_myim_common_pojo_ProtoMsg_Message_descriptor =
+    internal_static_com_myim_common_pojo_ProtoMsg_MessageHeartBeat_descriptor =
       internal_static_com_myim_common_pojo_ProtoMsg_descriptor.getNestedTypes().get(4);
+    internal_static_com_myim_common_pojo_ProtoMsg_MessageHeartBeat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_myim_common_pojo_ProtoMsg_MessageHeartBeat_descriptor,
+        new java.lang.String[] { "Seq", "Uid", "Json", });
+    internal_static_com_myim_common_pojo_ProtoMsg_Message_descriptor =
+      internal_static_com_myim_common_pojo_ProtoMsg_descriptor.getNestedTypes().get(5);
     internal_static_com_myim_common_pojo_ProtoMsg_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_myim_common_pojo_ProtoMsg_Message_descriptor,
-        new java.lang.String[] { "Type", "SessionId", "Seq", "LoginRequest", "LoginResponse", "MessageRequest", "MessageResponse", });
+        new java.lang.String[] { "Type", "SessionId", "Seq", "LoginRequest", "LoginResponse", "MessageRequest", "MessageResponse", "MessageHeartBeat", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

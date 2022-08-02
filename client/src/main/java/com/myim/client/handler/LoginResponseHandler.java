@@ -23,6 +23,9 @@ public class LoginResponseHandler extends ChannelInboundHandlerAdapter {
 
     @Autowired
     MessageHandler messageHandler;
+
+    @Autowired
+    HeartBeatHandler heartBeatHandler;
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
@@ -39,7 +42,7 @@ public class LoginResponseHandler extends ChannelInboundHandlerAdapter {
             log.info("登录成功");
             ClientSession.loginSuccess(ctx.channel(),message.getSessionId());
             //增加心跳处理等处理器，去除登录响应处理器
-            //ctx.channel().pipeline().addAfter("response","heartBeat",);
+            ctx.channel().pipeline().addAfter("loginResponse","heartBeat",heartBeatHandler);
             ctx.channel().pipeline().addAfter("loginResponse","messageHandler",messageHandler);
             ctx.channel().pipeline().remove("loginResponse");
         }else {

@@ -91,13 +91,19 @@ public class ServerSession {
             serverSession.isLogin = false;
             ServerSessionMap serverSessionMap = ServerSessionMap.getServerSessionMap();
             serverSessionMap.removeSession(serverSession.sessionId);
-            final ChannelFuture channelFuture = serverSession.channel.closeFuture();
-            channelFuture.addListener((ChannelFutureListener) channelFuture1 -> {
-                if (channelFuture1.isSuccess()) {
-                    log.error("关闭失败");
-                }
-            });
+            serverSession.close();
         }
+    }
+
+    public synchronized void close(){
+        final ChannelFuture close = channel.close();
+        close.addListener((ChannelFutureListener) channelFuture -> {
+            if (channelFuture.isSuccess()){
+                log.info("关闭成功");
+            }else {
+                log.info("关闭失败");
+            }
+        });
     }
 
     public void writeAndFlush(Object o) {

@@ -62,8 +62,8 @@ public class ClientSession {
      *
      * @return ClientSession 会话
      */
-    public ClientSession getClientSession() {
-        return this.channel.attr(SESSION).get();
+    public static ClientSession getClientSession(ChannelHandlerContext context) {
+        return context.channel().attr(SESSION).get();
     }
 
 
